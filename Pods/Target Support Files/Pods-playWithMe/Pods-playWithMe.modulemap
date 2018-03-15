@@ -1,0 +1,6 @@
+framework module Pods_playWithMe {
+  umbrella header "Pods-playWithMe-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,23 @@
+PODS:
+  - DGElasticPullToRefresh (1.1)
+  - PagingMenuController (2.2.0)
+  - Realm (3.1.1):
+    - Realm/Headers (= 3.1.1)
+  - Realm/Headers (3.1.1)
+  - RealmSwift (3.1.1):
+    - Realm (= 3.1.1)
+
+DEPENDENCIES:
+  - DGElasticPullToRefresh
+  - PagingMenuController
+  - RealmSwift
+
+SPEC CHECKSUMS:
+  DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
+  PagingMenuController: 6176618987bb170096664f2da097313e45ed9c31
+  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
+  RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
+
+PODFILE CHECKSUM: 48558e474d19dc818159d2bcf86806337af1687c
+
+COCOAPODS: 1.4.0
