@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F7CFF60C6A5BEFC4B1DC6A6 /* Pods_playWithMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 146B00A9A7D3D9865C71FD2A /* Pods_playWithMe.framework */; };
+		7206BA082060E6B700091544 /* UserCorporationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA072060E6B600091544 /* UserCorporationTableViewController.swift */; };
 		7224213E203D566500ECE446 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224213D203D566500ECE446 /* GuideViewController.swift */; };
 		72242140203FCBAA00ECE446 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224213F203FCBAA00ECE446 /* MainViewController.swift */; };
 		72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72242143203FD4EC00ECE446 /* MyTableViewController.swift */; };
@@ -30,6 +31,7 @@
 		724F60C5205931C700AEF3EA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60C4205931C700AEF3EA /* ActivityViewController.swift */; };
 		724F60C7205945F100AEF3EA /* CorporationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60C6205945F100AEF3EA /* CorporationTableViewCell.swift */; };
 		724F60C9205A96D400AEF3EA /* CorporationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60C8205A96D400AEF3EA /* CorporationDetailTableViewController.swift */; };
+		724F60CB2060E33900AEF3EA /* UserDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60CA2060E33900AEF3EA /* UserDetailTableViewController.swift */; };
 		7296CA06205112E0002839B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296CA05205112E0002839B4 /* User.swift */; };
 		7296CA0820511A2A002839B4 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296CA0720511A2A002839B4 /* common.swift */; };
 		72C864BA203971E6001CBD9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C864B9203971E6001CBD9F /* AppDelegate.swift */; };
@@ -64,6 +66,7 @@
 		146B00A9A7D3D9865C71FD2A /* Pods_playWithMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_playWithMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B6362E06AFAD9E9AF57404 /* Pods-playWithMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playWithMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-playWithMe/Pods-playWithMe.debug.xcconfig"; sourceTree = "<group>"; };
 		704C5363DAF55FE40C99810B /* Pods_playWithMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_playWithMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7206BA072060E6B600091544 /* UserCorporationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCorporationTableViewController.swift; sourceTree = "<group>"; };
 		7224213D203D566500ECE446 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		7224213F203FCBAA00ECE446 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		72242143203FD4EC00ECE446 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		724F60C4205931C700AEF3EA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		724F60C6205945F100AEF3EA /* CorporationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporationTableViewCell.swift; sourceTree = "<group>"; };
 		724F60C8205A96D400AEF3EA /* CorporationDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporationDetailTableViewController.swift; sourceTree = "<group>"; };
+		724F60CA2060E33900AEF3EA /* UserDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewController.swift; sourceTree = "<group>"; };
 		7296CA05205112E0002839B4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7296CA0720511A2A002839B4 /* common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		72C864B6203971E6001CBD9F /* playWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = playWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +193,8 @@
 				724F60C4205931C700AEF3EA /* ActivityViewController.swift */,
 				724F60C6205945F100AEF3EA /* CorporationTableViewCell.swift */,
 				724F60C8205A96D400AEF3EA /* CorporationDetailTableViewController.swift */,
+				724F60CA2060E33900AEF3EA /* UserDetailTableViewController.swift */,
+				7206BA072060E6B600091544 /* UserCorporationTableViewController.swift */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -472,10 +478,12 @@
 				724F60C32059319E00AEF3EA /* CorporationViewController.swift in Sources */,
 				7224214A203FE78900ECE446 /* EditTableViewController.swift in Sources */,
 				7224213E203D566500ECE446 /* GuideViewController.swift in Sources */,
+				724F60CB2060E33900AEF3EA /* UserDetailTableViewController.swift in Sources */,
 				7224216A204405E900ECE446 /* ActivityTableViewController.swift in Sources */,
 				722421532042B0E300ECE446 /* ChatDataSource.swift in Sources */,
 				7296CA0820511A2A002839B4 /* common.swift in Sources */,
 				72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */,
+				7206BA082060E6B700091544 /* UserCorporationTableViewController.swift in Sources */,
 				7224214F2042AEE100ECE446 /* MessageTableViewCell.swift in Sources */,
 				7224215D2042B17D00ECE446 /* TableHeaderViewCell.swift in Sources */,
 				72D5EAEB2053CE460006BE17 /* Message.swift in Sources */,

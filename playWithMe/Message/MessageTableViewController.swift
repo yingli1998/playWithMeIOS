@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import DGElasticPullToRefresh
 
 class MessageTableViewController: UITableViewController {
     var messageLists: Results<MessageList>? //记录消息列表
@@ -21,7 +22,20 @@ class MessageTableViewController: UITableViewController {
         //设置footerView
         self.tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor(red: 235/255.0, green: 235/255.0, blue: 241/255.0, alpha: 1.0)
+        
+        //下拉刷新
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
+        tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            // Add your logic here
+            // Do not forget to call dg_stopLoading() at the end
+            self?.tableView.dg_stopLoading()
+            }, loadingView: loadingView)
+        tableView.dg_setPullToRefreshFillColor(UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0))
+        tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+        
         reloadData()
+        
     }
     
     func reloadData(){

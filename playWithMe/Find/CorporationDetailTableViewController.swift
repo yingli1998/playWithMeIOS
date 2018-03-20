@@ -53,5 +53,7 @@ class CorporationDetailTableViewController: UITableViewController {
     @IBAction func joinTo(_ sender: UIButton) {
     }
 
-
+    @IBAction func chat(_ sender: Any) {
+    }
+    
 }
