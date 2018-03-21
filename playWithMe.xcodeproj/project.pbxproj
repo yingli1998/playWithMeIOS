@@ -12,6 +12,9 @@
 		7206BA0A2060F83F00091544 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA092060F83F00091544 /* ActivityTableViewCell.swift */; };
 		7206BA0C2061042300091544 /* FinishTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA0B2061042300091544 /* FinishTableViewController.swift */; };
 		7206BA0E2061043600091544 /* FinishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA0D2061043600091544 /* FinishTableViewCell.swift */; };
+		7206BA10206235C300091544 /* ActivityManageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA0F206235C300091544 /* ActivityManageController.swift */; };
+		7206BA12206237EC00091544 /* RuningActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA11206237EC00091544 /* RuningActivityCell.swift */; };
+		7206BA162062383E00091544 /* RunningActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA152062383E00091544 /* RunningActivityController.swift */; };
 		7224213E203D566500ECE446 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224213D203D566500ECE446 /* GuideViewController.swift */; };
 		72242140203FCBAA00ECE446 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224213F203FCBAA00ECE446 /* MainViewController.swift */; };
 		72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72242143203FD4EC00ECE446 /* MyTableViewController.swift */; };
@@ -71,6 +74,9 @@
 		7206BA092060F83F00091544 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		7206BA0B2061042300091544 /* FinishTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTableViewController.swift; sourceTree = "<group>"; };
 		7206BA0D2061043600091544 /* FinishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTableViewCell.swift; sourceTree = "<group>"; };
+		7206BA0F206235C300091544 /* ActivityManageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManageController.swift; sourceTree = "<group>"; };
+		7206BA11206237EC00091544 /* RuningActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuningActivityCell.swift; sourceTree = "<group>"; };
+		7206BA152062383E00091544 /* RunningActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningActivityController.swift; sourceTree = "<group>"; };
 		7224213D203D566500ECE446 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		7224213F203FCBAA00ECE446 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		72242143203FD4EC00ECE446 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +188,9 @@
 				722421642043F5A200ECE446 /* SettingTableViewController.swift */,
 				7206BA0B2061042300091544 /* FinishTableViewController.swift */,
 				7206BA0D2061043600091544 /* FinishTableViewCell.swift */,
+				7206BA0F206235C300091544 /* ActivityManageController.swift */,
+				7206BA11206237EC00091544 /* RuningActivityCell.swift */,
+				7206BA152062383E00091544 /* RunningActivityController.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -472,6 +481,7 @@
 				7224215F2042B19100ECE446 /* TableViewCell.swift in Sources */,
 				722421632042C32E00ECE446 /* FindTableViewController.swift in Sources */,
 				72C864EA203974B3001CBD9F /* LoginViewController.swift in Sources */,
+				7206BA12206237EC00091544 /* RuningActivityCell.swift in Sources */,
 				722421572042B11E00ECE446 /* MessageItem.swift in Sources */,
 				7206BA0A2060F83F00091544 /* ActivityTableViewCell.swift in Sources */,
 				7224215B2042B15600ECE446 /* TableView.swift in Sources */,
@@ -488,6 +498,7 @@
 				7206BA0C2061042300091544 /* FinishTableViewController.swift in Sources */,
 				7206BA082060E6B700091544 /* UserCorporationTableViewController.swift in Sources */,
 				7224214F2042AEE100ECE446 /* MessageTableViewCell.swift in Sources */,
+				7206BA10206235C300091544 /* ActivityManageController.swift in Sources */,
 				7224215D2042B17D00ECE446 /* TableHeaderViewCell.swift in Sources */,
 				72D5EAEB2053CE460006BE17 /* Message.swift in Sources */,
 				7224214D2042AB8D00ECE446 /* MessageTableViewController.swift in Sources */,
@@ -497,6 +508,7 @@
 				72D5EAE920520A210006BE17 /* MessageList.swift in Sources */,
 				72242140203FCBAA00ECE446 /* MainViewController.swift in Sources */,
 				7296CA06205112E0002839B4 /* User.swift in Sources */,
+				7206BA162062383E00091544 /* RunningActivityController.swift in Sources */,
 				724F60C7205945F100AEF3EA /* CorporationTableViewCell.swift in Sources */,
 				7206BA0E2061043600091544 /* FinishTableViewCell.swift in Sources */,
 				724F60C9205A96D400AEF3EA /* CorporationDetailTableViewController.swift in Sources */,

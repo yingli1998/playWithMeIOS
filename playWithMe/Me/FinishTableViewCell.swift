@@ -18,6 +18,11 @@ class FinishTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backCardView.backgroundColor = UIColor.clear
+        
+        rateBT.layer.borderColor = UIColor(red: 0.0/255, green: 128.0/255, blue: 0.0/255, alpha: 1.0).cgColor
+        rateBT.layer.borderWidth = 1.0
+        rateBT.layer.cornerRadius = 10.0
+        rateBT.layer.masksToBounds = true
         // Initialization code
     }
 
