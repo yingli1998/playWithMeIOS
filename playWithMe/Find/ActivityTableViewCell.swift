@@ -2,64 +2,30 @@
 //  ActivityTableViewCell.swift
 //  playWithMe
 //
-//  Created by Murray on 2018/2/26.
+//  Created by murray on 2018/3/20.
 //  Copyright © 2018年 Murray. All rights reserved.
 //
 
 import UIKit
 
-extension UIView {
-    
-    func setCardView(view : UIView){
-        
-        view.layer.masksToBounds = false
-        view.layer.cornerRadius = 3.0;
-        view.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 0)
-        view.layer.shadowOpacity = 0.8
-        view.backgroundColor = UIColor.white
-
-    }
-}
-
-extension UIButton {
-    static func setButton(button: UIButton){
-        button.layer.cornerRadius = 5.0
-        //button.layer.masksToBounds = true
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowRadius = 2
-        button.layer.shadowOffset = CGSize(width: 2, height: 2)
-        button.layer.shadowOpacity = 0.3
-        //button.backgroundColor = UIColor.greenColor()
-        button.layer.backgroundColor = UIColor.blue.cgColor
-        
-    }
-}
-
-
 class ActivityTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var backgroundCardView: UIView!
-    @IBOutlet weak var activityImage: UIImageView!
-    @IBOutlet weak var nameLB: UILabel!
-    @IBOutlet weak var numberLB: UILabel!
+    @IBOutlet weak var detailTV: UITextView!
     @IBOutlet weak var addBT: UIButton!
-    
+    @IBOutlet weak var numberLB: UILabel!
+    @IBOutlet weak var timeLB: UILabel!
+    @IBOutlet weak var headImage: UIImageView!
+    @IBOutlet weak var usernameLB: UILabel!
     override func awakeFromNib() {
-        backgroundCardView.backgroundColor = UIColor.white
-        setCardView(view: backgroundCardView)
-        
-        activityImage.layer.cornerRadius = 3.0
-        activityImage.layer.masksToBounds = true
-        
-        UIButton.setButton(button: addBT)
-        
         super.awakeFromNib()
+        UIButton.setButton(button: addBT)
+        addBT.backgroundColor =  UIColor(red: 30/255.0, green: 144/255.0, blue: 1.0, alpha: 1.0)
+        headImage.layer.cornerRadius = 30
+        headImage.layer.masksToBounds = true 
         // Initialization code
     }
-    @IBAction func add(_ sender: UIButton) {
+
+    @IBAction func joinIn(_ sender: Any) {
     }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

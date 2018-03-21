@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1F7CFF60C6A5BEFC4B1DC6A6 /* Pods_playWithMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 146B00A9A7D3D9865C71FD2A /* Pods_playWithMe.framework */; };
 		7206BA082060E6B700091544 /* UserCorporationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA072060E6B600091544 /* UserCorporationTableViewController.swift */; };
+		7206BA0A2060F83F00091544 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA092060F83F00091544 /* ActivityTableViewCell.swift */; };
+		7206BA0C2061042300091544 /* FinishTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA0B2061042300091544 /* FinishTableViewController.swift */; };
+		7206BA0E2061043600091544 /* FinishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA0D2061043600091544 /* FinishTableViewCell.swift */; };
 		7224213E203D566500ECE446 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224213D203D566500ECE446 /* GuideViewController.swift */; };
 		72242140203FCBAA00ECE446 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224213F203FCBAA00ECE446 /* MainViewController.swift */; };
 		72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72242143203FD4EC00ECE446 /* MyTableViewController.swift */; };
@@ -24,8 +27,6 @@
 		7224215F2042B19100ECE446 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224215E2042B19100ECE446 /* TableViewCell.swift */; };
 		722421632042C32E00ECE446 /* FindTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722421622042C32E00ECE446 /* FindTableViewController.swift */; };
 		722421652043F5A200ECE446 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722421642043F5A200ECE446 /* SettingTableViewController.swift */; };
-		7224216A204405E900ECE446 /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72242169204405E900ECE446 /* ActivityTableViewController.swift */; };
-		7224216C2044088100ECE446 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224216B2044088100ECE446 /* ActivityTableViewCell.swift */; };
 		724F60C120591B3F00AEF3EA /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60C020591B3F00AEF3EA /* HomePageViewController.swift */; };
 		724F60C32059319E00AEF3EA /* CorporationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60C22059319E00AEF3EA /* CorporationViewController.swift */; };
 		724F60C5205931C700AEF3EA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60C4205931C700AEF3EA /* ActivityViewController.swift */; };
@@ -67,6 +68,9 @@
 		49B6362E06AFAD9E9AF57404 /* Pods-playWithMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playWithMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-playWithMe/Pods-playWithMe.debug.xcconfig"; sourceTree = "<group>"; };
 		704C5363DAF55FE40C99810B /* Pods_playWithMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_playWithMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7206BA072060E6B600091544 /* UserCorporationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCorporationTableViewController.swift; sourceTree = "<group>"; };
+		7206BA092060F83F00091544 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		7206BA0B2061042300091544 /* FinishTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTableViewController.swift; sourceTree = "<group>"; };
+		7206BA0D2061043600091544 /* FinishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTableViewCell.swift; sourceTree = "<group>"; };
 		7224213D203D566500ECE446 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		7224213F203FCBAA00ECE446 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		72242143203FD4EC00ECE446 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
@@ -82,8 +86,6 @@
 		7224215E2042B19100ECE446 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		722421622042C32E00ECE446 /* FindTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTableViewController.swift; sourceTree = "<group>"; };
 		722421642043F5A200ECE446 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
-		72242169204405E900ECE446 /* ActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
-		7224216B2044088100ECE446 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		724F60C020591B3F00AEF3EA /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		724F60C22059319E00AEF3EA /* CorporationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporationViewController.swift; sourceTree = "<group>"; };
 		724F60C4205931C700AEF3EA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,8 @@
 				72242143203FD4EC00ECE446 /* MyTableViewController.swift */,
 				72242147203FE6C100ECE446 /* PasswordViewController.swift */,
 				722421642043F5A200ECE446 /* SettingTableViewController.swift */,
+				7206BA0B2061042300091544 /* FinishTableViewController.swift */,
+				7206BA0D2061043600091544 /* FinishTableViewCell.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -186,8 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				722421622042C32E00ECE446 /* FindTableViewController.swift */,
-				72242169204405E900ECE446 /* ActivityTableViewController.swift */,
-				7224216B2044088100ECE446 /* ActivityTableViewCell.swift */,
 				724F60C020591B3F00AEF3EA /* HomePageViewController.swift */,
 				724F60C22059319E00AEF3EA /* CorporationViewController.swift */,
 				724F60C4205931C700AEF3EA /* ActivityViewController.swift */,
@@ -195,6 +197,7 @@
 				724F60C8205A96D400AEF3EA /* CorporationDetailTableViewController.swift */,
 				724F60CA2060E33900AEF3EA /* UserDetailTableViewController.swift */,
 				7206BA072060E6B600091544 /* UserCorporationTableViewController.swift */,
+				7206BA092060F83F00091544 /* ActivityTableViewCell.swift */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -467,10 +470,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7224215F2042B19100ECE446 /* TableViewCell.swift in Sources */,
-				7224216C2044088100ECE446 /* ActivityTableViewCell.swift in Sources */,
 				722421632042C32E00ECE446 /* FindTableViewController.swift in Sources */,
 				72C864EA203974B3001CBD9F /* LoginViewController.swift in Sources */,
 				722421572042B11E00ECE446 /* MessageItem.swift in Sources */,
+				7206BA0A2060F83F00091544 /* ActivityTableViewCell.swift in Sources */,
 				7224215B2042B15600ECE446 /* TableView.swift in Sources */,
 				722421652043F5A200ECE446 /* SettingTableViewController.swift in Sources */,
 				72C864BA203971E6001CBD9F /* AppDelegate.swift in Sources */,
@@ -479,10 +482,10 @@
 				7224214A203FE78900ECE446 /* EditTableViewController.swift in Sources */,
 				7224213E203D566500ECE446 /* GuideViewController.swift in Sources */,
 				724F60CB2060E33900AEF3EA /* UserDetailTableViewController.swift in Sources */,
-				7224216A204405E900ECE446 /* ActivityTableViewController.swift in Sources */,
 				722421532042B0E300ECE446 /* ChatDataSource.swift in Sources */,
 				7296CA0820511A2A002839B4 /* common.swift in Sources */,
 				72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */,
+				7206BA0C2061042300091544 /* FinishTableViewController.swift in Sources */,
 				7206BA082060E6B700091544 /* UserCorporationTableViewController.swift in Sources */,
 				7224214F2042AEE100ECE446 /* MessageTableViewCell.swift in Sources */,
 				7224215D2042B17D00ECE446 /* TableHeaderViewCell.swift in Sources */,
@@ -495,6 +498,7 @@
 				72242140203FCBAA00ECE446 /* MainViewController.swift in Sources */,
 				7296CA06205112E0002839B4 /* User.swift in Sources */,
 				724F60C7205945F100AEF3EA /* CorporationTableViewCell.swift in Sources */,
+				7206BA0E2061043600091544 /* FinishTableViewCell.swift in Sources */,
 				724F60C9205A96D400AEF3EA /* CorporationDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

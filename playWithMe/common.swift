@@ -18,6 +18,36 @@ func genderCode(gender: String) -> Bool {
     }
 }
 
+//卡片式设计
+extension UIView {
+    
+    func setCardView(view : UIView){
+        
+        view.layer.masksToBounds = false
+        view.layer.cornerRadius = 3.0;
+        view.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOpacity = 0.8
+        view.backgroundColor = UIColor.white
+        
+    }
+}
+
+extension UIButton {
+    static func setButton(button: UIButton){
+        button.layer.cornerRadius = 5.0
+        //button.layer.masksToBounds = true
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 2
+        button.layer.shadowOffset = CGSize(width: 2, height: 2)
+        button.layer.shadowOpacity = 0.3
+        //button.backgroundColor = UIColor.greenColor()
+        button.layer.backgroundColor = UIColor.blue.cgColor
+        
+    }
+}
+
+
 //把输入框变成横线
 func setBottomBorder(textField:UITextField){
     textField.borderStyle = .none

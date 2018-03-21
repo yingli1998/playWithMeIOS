@@ -1,18 +1,17 @@
 //
-//  ActivityTableViewController.swift
+//  FinishTableViewController.swift
 //  playWithMe
 //
-//  Created by Murray on 2018/2/26.
+//  Created by murray on 2018/3/20.
 //  Copyright © 2018年 Murray. All rights reserved.
 //
 
 import UIKit
 
-class ActivityTableViewController: UITableViewController {
- 
+class FinishTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -40,11 +39,13 @@ class ActivityTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "acitivityCell", for: indexPath) as! ActivityTableViewCell
-        
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "finishCell", for: indexPath) as! FinishTableViewCell
+        cell.setCardView(view: cell.backCardView)
 
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
 }
