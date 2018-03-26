@@ -9,9 +9,14 @@
 import UIKit
 
 class MemeberTableViewCell: UITableViewCell {
+    @IBOutlet weak var headImage: UIImageView!
+    @IBOutlet weak var nameLB: UILabel!
+    @IBOutlet weak var creditLB: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        creditLB.layer.cornerRadius = 30.0
+        creditLB.layer.masksToBounds = true
         // Initialization code
     }
 
