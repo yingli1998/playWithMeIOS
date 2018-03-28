@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey:"everLaunched")
             let guideViewController = GuideViewController()
             self.window!.rootViewController = guideViewController
-        }else if false {  //非登录状态进入登录注册界面
+        }else if true {  //非登录状态进入登录注册界面
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let loginController = sb.instantiateViewController(withIdentifier: "Login") as! LoginViewController
             //VC为该界面storyboardID，Main.storyboard中选中该界面View，Identifier inspector中修改

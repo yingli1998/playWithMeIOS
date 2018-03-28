@@ -24,7 +24,7 @@ class ChatViewController: UIViewController, ChatDataSource, UITextFieldDelegate 
         //给用户赋值
         me = getMeInfo()
         let realm = try! Realm()
-        messages = realm.objects(Message.self).filter("sender == %@", you).sorted(byKeyPath: "date", ascending: false)
+        messages = realm.objects(Message.self).filter("receiver == %@", you).sorted(byKeyPath: "date", ascending: false)
         
         //设置界面
         setupChatTable()
@@ -88,7 +88,7 @@ class ChatViewController: UIViewController, ChatDataSource, UITextFieldDelegate 
         thisChatMessage.date = Date()
         thisChatMessage.isMe = true
         thisChatMessage.message = sender!.text!
-        thisChatMessage.sender = you
+        thisChatMessage.receiver = you
         
         let realm = try! Realm()
         try! realm.write {
@@ -121,27 +121,18 @@ class ChatViewController: UIViewController, ChatDataSource, UITextFieldDelegate 
             }
         }
         
-        print("HERE 1")
-        
         //set the chatDataSource
         self.tableView.chatDataSource = self
-        
-        print("HERE 2")
         
         //call the reloadData, this is actually calling your override method
         self.tableView.reloadData()
         
-        print("HERE 3")
-        
         self.view.addSubview(self.tableView)
-        
-        print("SET  END ")
     }
     
     //返回个数
     func rowsForChatTable(_ tableView:TableView) -> Int
     {
-        print("HERE 4")
         return self.Chats.count
     }
     

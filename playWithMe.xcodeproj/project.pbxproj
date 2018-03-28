@@ -17,6 +17,10 @@
 		7206BA162062383E00091544 /* RunningActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA152062383E00091544 /* RunningActivityController.swift */; };
 		7206BA182062400400091544 /* CorporationManageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA172062400400091544 /* CorporationManageController.swift */; };
 		7206BA1C2062403500091544 /* CorporationManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206BA1B2062403500091544 /* CorporationManageCell.swift */; };
+		7223E897206B8B5E003650F4 /* EditCorporationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7223E896206B8B5E003650F4 /* EditCorporationViewController.swift */; };
+		7223E899206B8DBD003650F4 /* Corporation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7223E898206B8DBD003650F4 /* Corporation.swift */; };
+		7223E89B206B8DC8003650F4 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7223E89A206B8DC8003650F4 /* Activity.swift */; };
+		7223E89D206B98EB003650F4 /* LoginIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7223E89C206B98EB003650F4 /* LoginIn.swift */; };
 		7224213E203D566500ECE446 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224213D203D566500ECE446 /* GuideViewController.swift */; };
 		72242140203FCBAA00ECE446 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224213F203FCBAA00ECE446 /* MainViewController.swift */; };
 		72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72242143203FD4EC00ECE446 /* MyTableViewController.swift */; };
@@ -87,6 +91,10 @@
 		7206BA152062383E00091544 /* RunningActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningActivityController.swift; sourceTree = "<group>"; };
 		7206BA172062400400091544 /* CorporationManageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporationManageController.swift; sourceTree = "<group>"; };
 		7206BA1B2062403500091544 /* CorporationManageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporationManageCell.swift; sourceTree = "<group>"; };
+		7223E896206B8B5E003650F4 /* EditCorporationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCorporationViewController.swift; sourceTree = "<group>"; };
+		7223E898206B8DBD003650F4 /* Corporation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corporation.swift; sourceTree = "<group>"; };
+		7223E89A206B8DC8003650F4 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		7223E89C206B98EB003650F4 /* LoginIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIn.swift; sourceTree = "<group>"; };
 		7224213D203D566500ECE446 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		7224213F203FCBAA00ECE446 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		72242143203FD4EC00ECE446 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +186,9 @@
 				7296CA05205112E0002839B4 /* User.swift */,
 				72D5EAE820520A210006BE17 /* MessageList.swift */,
 				72D5EAEA2053CE460006BE17 /* Message.swift */,
+				7223E898206B8DBD003650F4 /* Corporation.swift */,
+				7223E89A206B8DC8003650F4 /* Activity.swift */,
+				7223E89C206B98EB003650F4 /* LoginIn.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -212,6 +223,7 @@
 				726662E52069230800FE93A8 /* CorporationDetailViewController.swift */,
 				726662E72069271C00FE93A8 /* MemeberTableViewController.swift */,
 				726662E92069273100FE93A8 /* MemeberTableViewCell.swift */,
+				7223E896206B8B5E003650F4 /* EditCorporationViewController.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -510,12 +522,15 @@
 				726662EA2069273100FE93A8 /* MemeberTableViewCell.swift in Sources */,
 				7206BA0A2060F83F00091544 /* ActivityTableViewCell.swift in Sources */,
 				7224215B2042B15600ECE446 /* TableView.swift in Sources */,
+				7223E897206B8B5E003650F4 /* EditCorporationViewController.swift in Sources */,
 				722421652043F5A200ECE446 /* SettingTableViewController.swift in Sources */,
 				72C864BA203971E6001CBD9F /* AppDelegate.swift in Sources */,
 				726662E82069271C00FE93A8 /* MemeberTableViewController.swift in Sources */,
+				7223E89D206B98EB003650F4 /* LoginIn.swift in Sources */,
 				726662E220690CED00FE93A8 /* AskCell.swift in Sources */,
 				72242148203FE6C100ECE446 /* PasswordViewController.swift in Sources */,
 				726662E420690CFD00FE93A8 /* ReplyCell.swift in Sources */,
+				7223E89B206B8DC8003650F4 /* Activity.swift in Sources */,
 				724F60C32059319E00AEF3EA /* CorporationViewController.swift in Sources */,
 				7224214A203FE78900ECE446 /* EditTableViewController.swift in Sources */,
 				7224213E203D566500ECE446 /* GuideViewController.swift in Sources */,
@@ -529,6 +544,7 @@
 				7224214F2042AEE100ECE446 /* MessageTableViewCell.swift in Sources */,
 				7206BA10206235C300091544 /* ActivityManageController.swift in Sources */,
 				7224215D2042B17D00ECE446 /* TableHeaderViewCell.swift in Sources */,
+				7223E899206B8DBD003650F4 /* Corporation.swift in Sources */,
 				72D5EAEB2053CE460006BE17 /* Message.swift in Sources */,
 				7224214D2042AB8D00ECE446 /* MessageTableViewController.swift in Sources */,
 				722421512042B05B00ECE446 /* ChatViewController.swift in Sources */,

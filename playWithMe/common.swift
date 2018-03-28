@@ -91,19 +91,27 @@ func getMeInfo()->User{
     return user!
 }
 
+func updateLoginState(){
+    let realm = try! Realm()
+    let loginIn = realm.objects(LoginIn.self).first  //获取登录状态并更新
+    try! realm.write {
+        loginIn?.lastTime = Date()
+    }
+}
+
 //设置消息体
 func setMessageItem(message: Message)->MessageItem{
-    let sender: User
+    let receiver: User
     let chatType: ChatType
     if message.isMe {
-        sender = getMeInfo()
-        chatType = .mine
-    }else{
-        sender = nameGetUser(username: message.sender)
+        receiver = nameGetUser(username: message.receiver)
         chatType = .someone
+    }else{
+        receiver = getMeInfo()
+        chatType = .mine
     }
     
-    let messageItem = MessageItem(body: message.message as NSString, user: sender, date: message.date, mtype: chatType)
+    let messageItem = MessageItem(body: message.message as NSString, user: receiver, date: message.date, mtype: chatType)
     
     return messageItem
 }

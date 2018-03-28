@@ -74,17 +74,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func login(_ sender: UIButton) {
         if status == "phone_login"{
             //状态是手机号登录则检查验证码
-            checkSMS()
-            let sb = UIStoryboard(name: "Main", bundle:nil)
-            let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
-            present(vc, animated: true, completion: nil)
+            if(checkSMS()){
+                updateLoginState()
+                
+                //进入主界面
+                let sb = UIStoryboard(name: "Main", bundle:nil)
+                let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
+                present(vc, animated: true, completion: nil)
+            }
+            
         }else{
             //状态是密码登录则检查密码
-            checkPassword()
-            let sb = UIStoryboard(name: "Main", bundle:nil)
-            let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
-            present(vc, animated: true, completion: nil)
+            if(checkPassword()){
+                updateLoginState()
+                
+                let sb = UIStoryboard(name: "Main", bundle:nil)
+                let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
+                present(vc, animated: true, completion: nil)
+            }
         }
+        
+        //登录失败
+        let alertController = UIAlertController(title: "登录失败", message: nil, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     //获取SMS按钮
@@ -101,29 +115,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     //检查验证码
-    func checkSMS(){
+    func checkSMS()->Bool{
         let username = createUser()
         saveUser(username: username)
         print("check SMS")
+        return true
     }
     
     //检查密码
-    func checkPassword(){
+    func checkPassword()->Bool{
         print("check password")
+        return true
     }
     
     //保存用户
     func saveUser(username: String){
         let realm = try! Realm()
         let user = User()
+        let loginIn = LoginIn()
         user.isMe = true
         user.phone = usernameTF.text!
         user.username = username
-//        let defaultImage = UIImage(named: "defaultHeadImage")
-//        user.headImage = UIImagePNGRepresentation(defaultImage!)
+        
+        //记录登录信息
+        loginIn.firstLogin = false
+        loginIn.lastTime = Date()
+        let defaultImage = UIImage(named: "defaultHeadImage1")
+        user.headImage = UIImagePNGRepresentation(defaultImage!)
 //
         try! realm.write {
             realm.add(user)
+            realm.add(loginIn)
         }
     }
     

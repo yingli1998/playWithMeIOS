@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-//消息类型，我的还是别人的
+//消息类型，我的还是别人的  (接收方是我, 还是别人)
 enum ChatType {
     case mine
     case someone

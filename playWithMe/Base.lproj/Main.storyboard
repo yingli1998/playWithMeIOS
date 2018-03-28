@@ -2168,14 +2168,14 @@
             </objects>
             <point key="canvasLocation" x="3821.5999999999999" y="276.61169415292358"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Edit Corporation View Controller-->
         <scene sceneID="TRg-yb-IL3">
             <objects>
-                <tableViewController id="HVq-fz-wWl" sceneMemberID="viewController">
+                <tableViewController id="HVq-fz-wWl" customClass="EditCorporationViewController" customModule="playWithMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="V84-73-IcO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="wRd-5p-nVq">
                                 <cells>
@@ -2290,6 +2290,9 @@
                                                     <state key="normal" title=" 保存" image="编辑-1">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="save:" destination="HVq-fz-wWl" eventType="touchDown" id="yMy-RI-kag"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -2307,6 +2310,11 @@
                             <outlet property="delegate" destination="HVq-fz-wWl" id="nBW-lv-Uyb"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="detailTV" destination="6ef-dr-qq5" id="kXl-Uj-5dv"/>
+                        <outlet property="nameFT" destination="dWN-bb-Zsr" id="5Na-Re-Yi1"/>
+                        <outlet property="saveBT" destination="rhJ-1c-mZ4" id="Knm-u9-28F"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qB-dY-MsO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
