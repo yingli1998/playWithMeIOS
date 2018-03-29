@@ -48,6 +48,9 @@ class UserDetailTableViewController: UITableViewController {
             let controller = segue.destination as! ChatViewController
             controller.you = user.username
             createNewMessage(receiver: user.username) //创建新的消息列表
+        }else if segue.identifier == "showCorporation"{
+            let controller = segue.destination as! UserCorporationTableViewController
+            controller.user = self.user
         }
     }
 }

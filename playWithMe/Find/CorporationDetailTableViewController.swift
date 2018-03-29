@@ -23,6 +23,9 @@ class CorporationDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.tableFooterView = UIView()
+        
+        print("--------------")
+        print(corporation.name)
 
         UIButton.setButton(button: addBT)
         addBT.backgroundColor = UIColor(red: 30/255.0, green: 144/255.0, blue: 1.0, alpha: 1.0)
@@ -44,7 +47,7 @@ class CorporationDetailTableViewController: UITableViewController {
     
     //加载数据
     func loadData(){
-        backImageView.image = UIImage(data: corporation.headImage!)
+        corporationView.image = UIImage(data: corporation.headImage!)
         nameLB.text = corporation.name
         if corporation.detail != nil {
             detailTV.text = corporation.detail
@@ -53,7 +56,8 @@ class CorporationDetailTableViewController: UITableViewController {
         }
         numLB.text = String(corporation.num)
         
-        createrView.imageView?.image = UIImage(data: nameGetUser(username: corporation.creater).headImage!)
+        createrView.setImage( UIImage(data: nameGetUser(username: corporation.creater).headImage!), for: .normal)
+        createrView.setImage(UIImage(data: nameGetUser(username: corporation.creater).headImage!), for: .selected)
         creditLB.text = String(nameGetUser(username: corporation.creater).cedit)
     }
 
@@ -73,6 +77,9 @@ class CorporationDetailTableViewController: UITableViewController {
         if segue.identifier == "showUser"{
             let controller = segue.destination as! UserDetailTableViewController
             controller.user = nameGetUser(username: corporation.creater)
+        }else if segue.identifier == "sendMessage"{
+            let controller = segue.destination as! ChatViewController
+            controller.you = corporation.creater
         }
     }
     

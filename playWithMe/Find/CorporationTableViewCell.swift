@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 
@@ -32,6 +33,16 @@ class CorporationTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    //加入社团
+    @IBAction func joinIn(_ sender: Any) {
+        let user = getMeInfo()
+        let corporation = nameGetCorporation(name: corporationName.text!)
+        let realm = try! Realm()
+        try! realm.write {
+            corporation.users.append(user)
+        }
     }
 
 }

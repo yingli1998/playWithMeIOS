@@ -75,10 +75,17 @@ func nameGetUser(username: String)->User{
     return user!  //注意返回的是可空的值
 }
 
+//用用户名获取社团信息
+func nameGetCorporation(name: String)->Corporation{
+    let realm = try! Realm()
+    let corporation = realm.objects(Corporation.self).filter("name == %@", name).first
+    return corporation!
+}
+
 //显示时间
 func showDate(date: Date)->String{
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "HH:mm"
+    dateFormatter.dateFormat = "DD:HH:mm"
     dateFormatter.locale = Locale.current //用本地系统时间
     return dateFormatter.string(from: date)
 }
@@ -120,11 +127,13 @@ func setMessageItem(message: Message)->MessageItem{
 //创建新的消息
 func createNewMessage(receiver: String){
     let realm = try! Realm()
-    let newMessageList = MessageList()
-    newMessageList.username = receiver
-    newMessageList.date = Date()
-    try! realm.write {
-        realm.add(newMessageList)
+    if !(realm.objects(MessageList.self).filter("username == %@", receiver).first != nil){
+        let newMessageList = MessageList()
+        newMessageList.username = receiver
+        newMessageList.date = Date()
+        try! realm.write {
+            realm.add(newMessageList)
+        }
     }
 }
 

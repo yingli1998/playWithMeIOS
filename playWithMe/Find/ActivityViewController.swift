@@ -11,7 +11,7 @@ import DGElasticPullToRefresh
 import RealmSwift
 
 class ActivityViewController: UITableViewController {
-//    var activities: Results<Activity>?    //主页面的社团
+    var activities: Results<Activity>?    //主页面的社团
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class ActivityViewController: UITableViewController {
     
     func loadData(){
         let realm = try! Realm()
-//        activities = realm.objects(Activity.self)
+        activities = realm.objects(Activity.self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,13 +47,26 @@ class ActivityViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return (activities?.count)!
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
-
+        let activity = activities![indexPath.row]
+        
+        cell.headImage.image = UIImage(data: nameGetUser(username: activity.creater).headImage!)
+        
+        if activity.detail == nil {
+            cell.detailTV.text = "暂无简介"
+        }else{
+            cell.detailTV.text = activity.detail
+        }
+        
+        cell.numberLB.text = String(activity.num)
+        cell.usernameLB.text = activity.name
+        cell.timeLB.text = showDate(date: activity.date)
+        
         return cell
     }
     

@@ -33,8 +33,7 @@ class CorporationManageController: UICollectionViewController {
         cell.setCardView(view: cell.backCardView)
         UIButton.setButton(button: cell.stateBT)
         cell.stateBT.backgroundColor = UIColor(red: 0/255, green: 205.0/255, blue: 102.0/255, alpha: 1.0)
-    
-        // Configure the cell
+
     
         return cell
     }

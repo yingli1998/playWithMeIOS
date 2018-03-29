@@ -764,6 +764,9 @@
                                                 <constraint firstAttribute="width" constant="60" id="PU1-ZW-9FU"/>
                                             </constraints>
                                             <state key="normal" image="添加"/>
+                                            <connections>
+                                                <action selector="joinIn:" destination="adS-mW-aQO" eventType="touchDown" id="Lx8-yJ-tNs"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -918,7 +921,7 @@
                                                         <constraint firstAttribute="height" constant="60" id="Iiz-rJ-hj1"/>
                                                         <constraint firstAttribute="width" constant="60" id="ptu-oK-E0s"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="sz"/>
+                                                    <state key="normal" image="sz"/>
                                                     <connections>
                                                         <segue destination="jRY-BV-45F" kind="show" identifier="showUser" id="uo9-2X-7GU"/>
                                                     </connections>
@@ -943,7 +946,7 @@
                                                     </constraints>
                                                     <state key="normal" image="聊天"/>
                                                     <connections>
-                                                        <action selector="chat:" destination="cex-22-I7D" eventType="touchDown" id="McX-WQ-mIe"/>
+                                                        <segue destination="mAV-eT-qYW" kind="show" identifier="sendMessage" id="Qep-bb-fz8"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1186,7 +1189,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="send" rowHeight="60" id="7gB-9M-dri">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="send" rowHeight="60" id="7gB-9M-dri">
                                         <rect key="frame" x="0.0" y="370" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7gB-9M-dri" id="4Ah-dU-h5Y">
@@ -1202,7 +1205,6 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="sendMessage:" destination="jRY-BV-45F" eventType="touchDown" id="V8a-pI-VVJ"/>
                                                         <segue destination="mAV-eT-qYW" kind="show" identifier="sendMessage" id="8yb-vl-5ji"/>
                                                     </connections>
                                                 </button>
@@ -1310,7 +1312,7 @@
                                     <outlet property="corporationName" destination="IqS-Cy-XDB" id="JU4-R2-Crx"/>
                                     <outlet property="corporationView" destination="y3b-ME-xng" id="M8n-EW-Gzs"/>
                                     <outlet property="detailLB" destination="WJZ-u1-puR" id="e8J-XN-Hg6"/>
-                                    <segue destination="cex-22-I7D" kind="show" id="Jc6-Kp-5b9"/>
+                                    <segue destination="cex-22-I7D" kind="show" identifier="corporationDetail" id="Jc6-Kp-5b9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -3304,8 +3306,8 @@
         <image name="邮箱" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8yb-vl-5ji"/>
-        <segue reference="C0q-zP-wW7"/>
-        <segue reference="1IK-aL-d6A"/>
+        <segue reference="Qep-bb-fz8"/>
+        <segue reference="uo9-2X-7GU"/>
+        <segue reference="Jc6-Kp-5b9"/>
     </inferredMetricsTieBreakers>
 </document>

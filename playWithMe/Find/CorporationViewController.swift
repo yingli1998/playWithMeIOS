@@ -88,7 +88,7 @@ class CorporationViewController: UITableViewController {
     
     //转场传递数据
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showChatView"{
+        if segue.identifier == "corporationDetail"{
             let index = tableView.indexPathForSelectedRow?.row
             let controller = segue.destination as! CorporationDetailTableViewController
             controller.corporation = corporations![index!]

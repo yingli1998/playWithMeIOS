@@ -27,4 +27,5 @@ class User: Object{
     //社团信息
     let manageCorporation = List<Corporation>()
     let activity = List<Activity>()
+    let attendCorporation = List<Corporation>()
 }
