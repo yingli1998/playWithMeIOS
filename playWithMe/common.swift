@@ -91,6 +91,7 @@ func getMeInfo()->User{
     return user!
 }
 
+//更新登录状态
 func updateLoginState(){
     let realm = try! Realm()
     let loginIn = realm.objects(LoginIn.self).first  //获取登录状态并更新
@@ -116,20 +117,15 @@ func setMessageItem(message: Message)->MessageItem{
     return messageItem
 }
 
-//获取高斯模糊的照片
-func getBlur(image: UIImage)->UIImage{
-    //获取原始图片
-    let inputImage =  CIImage(image: image)
-    //使用高斯模糊滤镜
-    let filter = CIFilter(name: "CIGaussianBlur")!
-    filter.setValue(inputImage, forKey:kCIInputImageKey)
-    //设置模糊半径值（越大越模糊）
-    filter.setValue(5.0, forKey: kCIInputRadiusKey)
-    let outputCIImage = filter.outputImage!
-    let rect = CGRect(origin: CGPoint.zero, size: image.size)
-    let cgImage = CIContext().createCGImage(outputCIImage, from: rect)
-    //显示生成的模糊图片
-    return UIImage(cgImage: cgImage!)
+//创建新的消息
+func createNewMessage(receiver: String){
+    let realm = try! Realm()
+    let newMessageList = MessageList()
+    newMessageList.username = receiver
+    newMessageList.date = Date()
+    try! realm.write {
+        realm.add(newMessageList)
+    }
 }
 
 

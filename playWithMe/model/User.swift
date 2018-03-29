@@ -22,7 +22,7 @@ class User: Object{
     @objc dynamic var birthday: String?   //生日 可空
     @objc dynamic var headImage: Data? = nil   //头像  可空
     @objc dynamic var signature: String?  //个性签名  可空
-    @objc dynamic var edit = 60   //信用值, 基础为60
+    @objc dynamic var cedit = 60   //信用值, 基础为60
 
     //社团信息
     let manageCorporation = List<Corporation>()

@@ -786,7 +786,7 @@
                                     <outlet property="corporationName" destination="WeG-UT-Uh2" id="RUN-MI-OXW"/>
                                     <outlet property="corporationView" destination="aRA-5q-ypi" id="yGy-0t-a0G"/>
                                     <outlet property="detailLB" destination="QAl-pD-Zfa" id="qOo-Pc-xaa"/>
-                                    <segue destination="cex-22-I7D" kind="show" id="1IK-aL-d6A"/>
+                                    <segue destination="cex-22-I7D" kind="show" identifier="corporationDetail" id="1IK-aL-d6A"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -920,7 +920,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="sz"/>
                                                     <connections>
-                                                        <segue destination="jRY-BV-45F" kind="show" id="uo9-2X-7GU"/>
+                                                        <segue destination="jRY-BV-45F" kind="show" identifier="showUser" id="uo9-2X-7GU"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBt-NB-vHa">
@@ -1019,6 +1019,7 @@
                         <outlet property="creditLB" destination="xBt-NB-vHa" id="Ncp-6u-hpt"/>
                         <outlet property="detailTV" destination="C8t-nE-UFt" id="rIj-0j-jlb"/>
                         <outlet property="nameLB" destination="DGF-ch-mFX" id="oop-d2-FAB"/>
+                        <outlet property="numLB" destination="o6l-8c-zIh" id="1k0-5g-cnC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ML-Es-JF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1202,6 +1203,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="sendMessage:" destination="jRY-BV-45F" eventType="touchDown" id="V8a-pI-VVJ"/>
+                                                        <segue destination="mAV-eT-qYW" kind="show" identifier="sendMessage" id="8yb-vl-5ji"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2073,7 +2075,7 @@
                     <navigationItem key="navigationItem" id="UuH-m3-p51">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="eow-rg-Fxi">
                             <connections>
-                                <segue destination="ZsT-dF-5kI" kind="show" id="Raj-cm-gBB"/>
+                                <segue destination="ZsT-dF-5kI" kind="show" id="kJB-fw-Lsx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3302,7 +3304,8 @@
         <image name="邮箱" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8yb-vl-5ji"/>
         <segue reference="C0q-zP-wW7"/>
-        <segue reference="Jc6-Kp-5b9"/>
+        <segue reference="1IK-aL-d6A"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,8 +8,10 @@
 
 import UIKit
 import DGElasticPullToRefresh
+import RealmSwift
 
 class ActivityViewController: UITableViewController {
+//    var activities: Results<Activity>?    //主页面的社团
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +25,12 @@ class ActivityViewController: UITableViewController {
         tableView.dg_setPullToRefreshFillColor(UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0))
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        loadData()
+    }
+    
+    func loadData(){
+        let realm = try! Realm()
+//        activities = realm.objects(Activity.self)
     }
 
     override func didReceiveMemoryWarning() {
