@@ -17,6 +17,10 @@ class UserCorporationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = .none
+    }
+    
+    //每次进入界面,更新数据
+    override func viewWillAppear(_ animated: Bool) {
         updateData()
     }
     

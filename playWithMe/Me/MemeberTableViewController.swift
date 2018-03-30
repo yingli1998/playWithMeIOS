@@ -7,24 +7,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MemeberTableViewController: UITableViewController {
+    var users: List<User>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 60.0
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
@@ -35,14 +27,17 @@ class MemeberTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return users.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath) as! MemeberTableViewCell
+        
+        let user = users[indexPath.row]
+        cell.nameLB.text = user.username
+        cell.creditLB.text = String(user.cedit)
+        cell.headImage.image = UIImage(data: user.headImage!)
 
         return cell
     }

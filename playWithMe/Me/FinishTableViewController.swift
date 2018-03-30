@@ -7,24 +7,25 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FinishTableViewController: UITableViewController {
+    var activities: Results<Activity>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateData()
+    }
+    
+    func updateData(){
+        let realm = try! Realm()
+        activities = realm.objects(Activity.self).filter("state == %@", false)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,13 +35,18 @@ class FinishTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return activities.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "finishCell", for: indexPath) as! FinishTableViewCell
         cell.setCardView(view: cell.backCardView)
+        
+        let activity = activities[indexPath.row]
+        cell.activityLB.text = activity.name
+        cell.numLB.text = String(activity.num)
+        cell.timeLB.text = showDate(date: activity.date)
 
         return cell
     }

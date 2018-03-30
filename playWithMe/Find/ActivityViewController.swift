@@ -24,8 +24,11 @@ class ActivityViewController: UITableViewController {
             }, loadingView: loadingView)
         tableView.dg_setPullToRefreshFillColor(UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0))
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
-
-//        loadData()
+    }
+    
+    //每次进入界面,载入数据
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
     }
     
     func loadData(){

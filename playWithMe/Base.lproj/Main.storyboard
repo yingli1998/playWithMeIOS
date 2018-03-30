@@ -862,7 +862,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人参加" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-rG-Wbc">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人关注" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-rG-Wbc">
                                                             <rect key="frame" x="15.5" y="0.0" width="37" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2170,7 +2170,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgt-KH-7gJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3821.5999999999999" y="276.61169415292358"/>
+            <point key="canvasLocation" x="3950" y="283"/>
         </scene>
         <!--Edit Corporation View Controller-->
         <scene sceneID="TRg-yb-IL3">
@@ -2454,7 +2454,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="4YJ-Ms-l3s" kind="show" id="WnJ-qd-uyi"/>
+                                            <segue destination="4YJ-Ms-l3s" kind="show" identifier="showMember" id="WnJ-qd-uyi"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="one" rowHeight="20" id="APY-CQ-z71">
@@ -2528,7 +2528,7 @@
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="HVq-fz-wWl" kind="show" id="DZf-OR-tvL"/>
+                                                        <segue destination="HVq-fz-wWl" kind="show" identifier="editCorporation" id="DZf-OR-tvL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2670,7 +2670,7 @@
                                     <outlet property="numImage" destination="shU-hk-LQj" id="u0m-Pf-O3R"/>
                                     <outlet property="numLB" destination="eK5-gN-AWD" id="icg-uL-bst"/>
                                     <outlet property="stateBT" destination="naz-te-mNR" id="JyT-vg-OHc"/>
-                                    <segue destination="oeu-CI-SJo" kind="show" id="nSF-r2-KQG"/>
+                                    <segue destination="oeu-CI-SJo" kind="show" identifier="showDetail" id="nSF-r2-KQG"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
