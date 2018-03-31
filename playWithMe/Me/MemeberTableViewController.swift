@@ -15,6 +15,7 @@ class MemeberTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 60.0
+        tableView.tableFooterView = UIView() 
     }
 
 

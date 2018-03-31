@@ -88,6 +88,18 @@ class MessageTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //从数据库中删除消息
+        if editingStyle == .delete {
+            let realm = try! Realm()
+            try! realm.write {
+                realm.delete(messageLists![indexPath.row])
+            }
+            reloadData()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     //转场传递数据
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showChatView"{

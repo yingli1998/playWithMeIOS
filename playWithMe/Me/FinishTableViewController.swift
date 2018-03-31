@@ -18,6 +18,7 @@ class FinishTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateData()
+        tableView.reloadData()
     }
     
     func updateData(){
@@ -35,7 +36,11 @@ class FinishTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return activities.count
+        if activities != nil{
+            return activities.count
+        }else{
+            return 0
+        }
     }
 
 

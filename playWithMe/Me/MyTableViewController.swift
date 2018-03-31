@@ -99,16 +99,6 @@ class MyTableViewController: UITableViewController,  UIImagePickerControllerDele
         }
     }
     
-    //修改图片尺寸
-    func scaleToSize(size:CGSize, image: UIImage) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        image.draw(in: CGRect(origin:CGPoint(x: 0, y: 0) , size: size))
-        let img = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return img!
-    }
-    
-    
     //选择图片成功后代理
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {

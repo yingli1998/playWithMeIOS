@@ -85,7 +85,7 @@ func nameGetCorporation(name: String)->Corporation{
 //显示时间
 func showDate(date: Date)->String{
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "DD:HH:mm"
+    dateFormatter.dateFormat = "HH:mm"
     dateFormatter.locale = Locale.current //用本地系统时间
     return dateFormatter.string(from: date)
 }
@@ -136,5 +136,26 @@ func createNewMessage(receiver: String){
         }
     }
 }
+
+//修改图片尺寸
+func scaleToSize(size:CGSize, image: UIImage) -> UIImage {
+    UIGraphicsBeginImageContextWithOptions(size, false, 0)
+    image.draw(in: CGRect(origin:CGPoint(x: 0, y: 0) , size: size))
+    let img = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return img!
+}
+
+//查看用户是否已经参加了该社团 true代表了参加  false代表了没有参加
+func checkCorporation(corporation: Corporation)->Bool{
+    let user = getMeInfo()
+    for selfCorporation in user.attendCorporation {
+        if corporation.name == selfCorporation.name {
+            return true
+        }
+    }
+    return false
+}
+
 
 

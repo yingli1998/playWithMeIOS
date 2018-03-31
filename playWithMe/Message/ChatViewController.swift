@@ -91,8 +91,11 @@ class ChatViewController: UIViewController, ChatDataSource, UITextFieldDelegate 
         thisChatMessage.receiver = you
         
         let realm = try! Realm()
+        let messageList = realm.objects(MessageList.self).filter("username == %@", you).first
         try! realm.write {
             realm.add(thisChatMessage)
+            messageList?.message = sender!.text!
+            messageList?.date = Date() 
         }
         
         Chats.add(thisChat)

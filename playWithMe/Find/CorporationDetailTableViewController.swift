@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CorporationDetailTableViewController: UITableViewController {
     @IBOutlet weak var corporationView: UIImageView!
@@ -23,9 +24,6 @@ class CorporationDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.tableFooterView = UIView()
-        
-        print("--------------")
-        print(corporation.name)
 
         UIButton.setButton(button: addBT)
         addBT.backgroundColor = UIColor(red: 30/255.0, green: 144/255.0, blue: 1.0, alpha: 1.0)
@@ -67,9 +65,20 @@ class CorporationDetailTableViewController: UITableViewController {
     }
 
     @IBAction func joinTo(_ sender: UIButton) {
-    }
-
-    @IBAction func chat(_ sender: Any) {
+        let user = getMeInfo()
+        let realm = try! Realm()
+        try! realm.write {
+            //如果用户没有加入该社团, 则加入
+            if !checkCorporation(corporation: corporation){
+                user.attendCorporation.append(corporation)
+                corporation.users.append(user)
+            }
+        }
+        
+        let alertController = UIAlertController(title: "成功加入社团", message: nil, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     //转场传递数据
@@ -80,6 +89,7 @@ class CorporationDetailTableViewController: UITableViewController {
         }else if segue.identifier == "sendMessage"{
             let controller = segue.destination as! ChatViewController
             controller.you = corporation.creater
+            createNewMessage(receiver: corporation.creater) //创建新的消息列表
         }
     }
     

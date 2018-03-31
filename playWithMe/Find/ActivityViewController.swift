@@ -15,6 +15,7 @@ class ActivityViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView()
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
         loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
@@ -24,11 +25,14 @@ class ActivityViewController: UITableViewController {
             }, loadingView: loadingView)
         tableView.dg_setPullToRefreshFillColor(UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0))
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+        loadData()
+
     }
     
     //每次进入界面,载入数据
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+        tableView.reloadData()
     }
     
     func loadData(){
@@ -50,6 +54,10 @@ class ActivityViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+//        return (activities?.count)!
+        if activities == nil {
+            return 0
+        }
         return (activities?.count)!
     }
 

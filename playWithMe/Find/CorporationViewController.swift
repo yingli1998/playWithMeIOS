@@ -28,11 +28,14 @@ class CorporationViewController: UITableViewController {
             }, loadingView: loadingView)
         tableView.dg_setPullToRefreshFillColor(UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0))
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+        
+        updateData()
     }
     
     //每次进入界面,更新数据
     override func viewWillAppear(_ animated: Bool) {
         updateData()
+        tableView.reloadData()
     }
     
     //更新数据
@@ -55,6 +58,9 @@ class CorporationViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if corporations == nil {
+            return 0
+        }
         return (corporations?.count)!
     }
 
@@ -74,18 +80,6 @@ class CorporationViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        //从数据库中删除某个社团的信息
-        if editingStyle == .delete {
-            let realm = try! Realm()
-            try! realm.write {
-                realm.delete(corporations![indexPath.row])
-            }
-            updateData()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
     }
     
     //转场传递数据

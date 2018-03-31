@@ -14,10 +14,13 @@ class RunningActivityController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none 
     }
 
     override func viewWillAppear(_ animated: Bool) {
         updateData()
+        tableView.reloadData()
     }
     
     //更新数据
@@ -35,7 +38,11 @@ class RunningActivityController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return activities.count
+        if activities != nil{
+            return activities.count
+        }else{
+            return 0
+        }
     }
 
     

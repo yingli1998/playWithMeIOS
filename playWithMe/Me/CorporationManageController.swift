@@ -13,7 +13,7 @@ private let reuseIdentifier = "corporManCell"
 
 class CorporationManageController: UICollectionViewController {
     
-    var corporations: List<Corporation>!
+    var corporations: List<Corporation>?
     var user: User!
 
     override func viewDidLoad() {
@@ -34,7 +34,11 @@ class CorporationManageController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return corporations.count
+        if corporations == nil {
+            return 0
+        }else{
+            return corporations!.count
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,7 +47,7 @@ class CorporationManageController: UICollectionViewController {
         UIButton.setButton(button: cell.stateBT)
         cell.stateBT.backgroundColor = UIColor(red: 0/255, green: 205.0/255, blue: 102.0/255, alpha: 1.0)
 
-        let corporation = corporations[indexPath.row]
+        let corporation = corporations![indexPath.row]
         cell.nameLB.text = corporation.name
         cell.numLB.text = String(corporation.num)
         cell.corporationImage.image = UIImage(data: corporation.headImage!)
@@ -63,7 +67,7 @@ class CorporationManageController: UICollectionViewController {
         if segue.identifier == "showDetail" {
             let controller = segue.destination as! CorporationDetailViewController
             let index = collectionView?.indexPathsForSelectedItems?.first?.row
-            controller.corporation = corporations[index!]
+            controller.corporation = corporations![index!]
         }
     }
 }

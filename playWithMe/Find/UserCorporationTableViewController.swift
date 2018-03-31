@@ -11,12 +11,14 @@ import DGElasticPullToRefresh
 import RealmSwift
 
 class UserCorporationTableViewController: UITableViewController {
-    var corporations: List<Corporation>!   //该用户参加的社团
+    var corporations: List<Corporation>?   //该用户参加的社团
     var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = .none
+        print("进入用户所参加的社团界面显示名字")
+        print(user.username)
     }
     
     //每次进入界面,更新数据
@@ -38,7 +40,11 @@ class UserCorporationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (corporations?.count)!
+        if corporations == nil {
+            return 0
+        }else{
+            return corporations!.count
+        }
     }
     
     
@@ -46,7 +52,7 @@ class UserCorporationTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "corporCell", for: indexPath) as! CorporationTableViewCell
         cell.setCardView(view: cell.backView)
         
-        let corporation = corporations[indexPath.row]
+        let corporation = corporations![indexPath.row]
         cell.corporationName.text = corporation.name
         cell.corporationView.image = UIImage(data: corporation.headImage!)
         cell.detailLB.text = corporation.sign

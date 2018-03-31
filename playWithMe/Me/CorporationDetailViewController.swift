@@ -44,7 +44,8 @@ class CorporationDetailViewController: UITableViewController {
         
         createrImage.image = UIImage(data: nameGetUser(username: corporation.creater).headImage!)
         nameLB.text = corporation.name
-        numLB.text = String(corporation.num)
+        let num = String(corporation.num)
+        numLB.text = num
         corporationImage.image = UIImage(data: corporation.headImage!)
     }
 

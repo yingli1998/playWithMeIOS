@@ -53,8 +53,12 @@ class EditCorporationViewController: UITableViewController, UITextFieldDelegate,
             }
             
             corporation.detail = detailTV.text
-            
         }
+        
+        let alertCtroller = UIAlertController(title: "保存成功", message: nil, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+        alertCtroller.addAction(alertAction)
+        present(alertCtroller, animated: true, completion: nil)
     }
     
     //检查name

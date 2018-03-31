@@ -36,6 +36,10 @@
 		7224215F2042B19100ECE446 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224215E2042B19100ECE446 /* TableViewCell.swift */; };
 		722421632042C32E00ECE446 /* FindTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722421622042C32E00ECE446 /* FindTableViewController.swift */; };
 		722421652043F5A200ECE446 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722421642043F5A200ECE446 /* SettingTableViewController.swift */; };
+		722E898D206DE34000BFB38F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E898C206DE34000BFB38F /* CreateViewController.swift */; };
+		722E898F206DE39300BFB38F /* CreateCorprationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E898E206DE39300BFB38F /* CreateCorprationController.swift */; };
+		722E8991206DE3A200BFB38F /* CreateActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E8990206DE3A200BFB38F /* CreateActivityController.swift */; };
+		722E8993206F607800BFB38F /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E8992206F607800BFB38F /* RoundedTextField.swift */; };
 		724F60C120591B3F00AEF3EA /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60C020591B3F00AEF3EA /* HomePageViewController.swift */; };
 		724F60C32059319E00AEF3EA /* CorporationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60C22059319E00AEF3EA /* CorporationViewController.swift */; };
 		724F60C5205931C700AEF3EA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724F60C4205931C700AEF3EA /* ActivityViewController.swift */; };
@@ -110,6 +114,10 @@
 		7224215E2042B19100ECE446 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		722421622042C32E00ECE446 /* FindTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTableViewController.swift; sourceTree = "<group>"; };
 		722421642043F5A200ECE446 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		722E898C206DE34000BFB38F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		722E898E206DE39300BFB38F /* CreateCorprationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCorprationController.swift; sourceTree = "<group>"; };
+		722E8990206DE3A200BFB38F /* CreateActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActivityController.swift; sourceTree = "<group>"; };
+		722E8992206F607800BFB38F /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		724F60C020591B3F00AEF3EA /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		724F60C22059319E00AEF3EA /* CorporationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporationViewController.swift; sourceTree = "<group>"; };
 		724F60C4205931C700AEF3EA /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +251,10 @@
 				726662DD20690CBF00FE93A8 /* MessageBoardController.swift */,
 				726662E120690CED00FE93A8 /* AskCell.swift */,
 				726662E320690CFD00FE93A8 /* ReplyCell.swift */,
+				722E898C206DE34000BFB38F /* CreateViewController.swift */,
+				722E898E206DE39300BFB38F /* CreateCorprationController.swift */,
+				722E8990206DE3A200BFB38F /* CreateActivityController.swift */,
+				722E8992206F607800BFB38F /* RoundedTextField.swift */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -517,6 +529,7 @@
 				7224215F2042B19100ECE446 /* TableViewCell.swift in Sources */,
 				722421632042C32E00ECE446 /* FindTableViewController.swift in Sources */,
 				72C864EA203974B3001CBD9F /* LoginViewController.swift in Sources */,
+				722E8993206F607800BFB38F /* RoundedTextField.swift in Sources */,
 				7206BA12206237EC00091544 /* RuningActivityCell.swift in Sources */,
 				722421572042B11E00ECE446 /* MessageItem.swift in Sources */,
 				726662EA2069273100FE93A8 /* MemeberTableViewCell.swift in Sources */,
@@ -535,14 +548,17 @@
 				7224214A203FE78900ECE446 /* EditTableViewController.swift in Sources */,
 				7224213E203D566500ECE446 /* GuideViewController.swift in Sources */,
 				724F60CB2060E33900AEF3EA /* UserDetailTableViewController.swift in Sources */,
+				722E8991206DE3A200BFB38F /* CreateActivityController.swift in Sources */,
 				726662DE20690CBF00FE93A8 /* MessageBoardController.swift in Sources */,
 				722421532042B0E300ECE446 /* ChatDataSource.swift in Sources */,
 				7296CA0820511A2A002839B4 /* common.swift in Sources */,
+				722E898F206DE39300BFB38F /* CreateCorprationController.swift in Sources */,
 				72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */,
 				7206BA0C2061042300091544 /* FinishTableViewController.swift in Sources */,
 				7206BA082060E6B700091544 /* UserCorporationTableViewController.swift in Sources */,
 				7224214F2042AEE100ECE446 /* MessageTableViewCell.swift in Sources */,
 				7206BA10206235C300091544 /* ActivityManageController.swift in Sources */,
+				722E898D206DE34000BFB38F /* CreateViewController.swift in Sources */,
 				7224215D2042B17D00ECE446 /* TableHeaderViewCell.swift in Sources */,
 				7223E899206B8DBD003650F4 /* Corporation.swift in Sources */,
 				72D5EAEB2053CE460006BE17 /* Message.swift in Sources */,

@@ -37,11 +37,16 @@ class CorporationTableViewCell: UITableViewCell {
     
     //加入社团
     @IBAction func joinIn(_ sender: Any) {
+        print("加入社团")
         let user = getMeInfo()
         let corporation = nameGetCorporation(name: corporationName.text!)
         let realm = try! Realm()
         try! realm.write {
-            corporation.users.append(user)
+            //如果用户没有加入该社团, 则加入
+            if !checkCorporation(corporation: corporation){
+                user.attendCorporation.append(corporation)
+                corporation.users.append(user)
+            }
         }
     }
 
