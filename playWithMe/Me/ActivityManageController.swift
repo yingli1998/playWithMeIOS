@@ -71,6 +71,7 @@ class ActivityManageController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         
         //分页菜单配置
         let options = PagingMenuOptions()
@@ -84,6 +85,10 @@ class ActivityManageController: UIViewController {
         addChildViewController(pagingMenuController)
         //分页菜单控制器视图添加到当前视图中
         view.addSubview(pagingMenuController.view)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
 
 }

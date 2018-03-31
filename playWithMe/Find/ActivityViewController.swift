@@ -32,6 +32,7 @@ class ActivityViewController: UITableViewController {
     //每次进入界面,载入数据
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+        self.tabBarController?.tabBar.isHidden = false
         tableView.reloadData()
     }
     

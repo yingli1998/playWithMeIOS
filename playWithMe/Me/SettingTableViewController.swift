@@ -14,6 +14,7 @@ class SettingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "设置"
+        self.tabBarController?.tabBar.isHidden = true
         
         UIButton.setButton(button: LogOutBT)
         LogOutBT.backgroundColor = UIColor.red
@@ -40,6 +41,10 @@ class SettingTableViewController: UITableViewController {
         alertController.addAction(cancelAction)
         alertController.addAction(logOutAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
 
 }

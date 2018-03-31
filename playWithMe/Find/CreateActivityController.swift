@@ -53,7 +53,7 @@ class CreateActivityController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func save(_ sender: Any) {
         //如果姓名栏没有填
-        if nameTF.text == nil {
+        if nameTF.text == "" {
             let nameAlertController = UIAlertController(title: "失败", message: "姓名不能是空", preferredStyle: .alert)
             let nameAlertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
             nameAlertController.addAction(nameAlertAction)

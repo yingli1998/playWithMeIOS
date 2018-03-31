@@ -35,6 +35,7 @@ class CorporationViewController: UITableViewController {
     //每次进入界面,更新数据
     override func viewWillAppear(_ animated: Bool) {
         updateData()
+        self.tabBarController?.tabBar.isHidden = false 
         tableView.reloadData()
     }
     

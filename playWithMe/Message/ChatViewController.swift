@@ -60,7 +60,7 @@ class ChatViewController: UIViewController, ChatDataSource, UITextFieldDelegate 
         let imageBT = UIButton()
         
         let sendButton = UIButton(frame:CGRect(x: screenWidth - 80,y: 10,width: 72,height: 36))
-        sendButton.backgroundColor=UIColor(red: 0x37/255, green: 0xba/255, blue: 0x46/255, alpha: 1)
+        sendButton.backgroundColor = UIColor(red: 0.0/255, green: 128.0/255, blue: 0.0/255, alpha: 1.0)
         sendButton.addTarget(self, action:#selector(ChatViewController.sendMessage) ,
                              for:UIControlEvents.touchUpInside)
         sendButton.layer.cornerRadius=6.0
@@ -109,8 +109,6 @@ class ChatViewController: UIViewController, ChatDataSource, UITextFieldDelegate 
     
     //设置聊天界面
     func setupChatTable(){
-        print("*************")
-        print("设置聊天界面")
         self.tableView = TableView(frame:CGRect(x: 0, y: 20, width: self.view.frame.size.width, height: self.view.frame.size.height - 76), style: .plain)
         
         //创建一个重用的单元格
@@ -118,7 +116,6 @@ class ChatViewController: UIViewController, ChatDataSource, UITextFieldDelegate 
         Chats = NSMutableArray()
         
         if (messages?.count)! != 0  {
-            print("Have message!!!!")
             for message in messages! {
                 Chats.add(setMessageItem(message: message))
             }

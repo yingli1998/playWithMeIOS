@@ -72,6 +72,7 @@ class HomePageViewController: UIViewController {
         
         self.title = "发现"
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.tabBarController?.tabBar.isHidden = false
         
         //分页菜单配置
         let options = PagingMenuOptions()

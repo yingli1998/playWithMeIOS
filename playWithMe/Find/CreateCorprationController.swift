@@ -108,13 +108,13 @@ class CreateCorprationController: UITableViewController, UITextFieldDelegate, UI
     //保存的时候上传到服务器与本地
     @IBAction func save(_ sender: Any) {
         //如果姓名栏没有填
-        if nameTextField.text == nil {
+        if nameTextField.text == "" {
             let nameAlertController = UIAlertController(title: "失败", message: "姓名不能是空", preferredStyle: .alert)
             let nameAlertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
             nameAlertController.addAction(nameAlertAction)
             present(nameAlertController, animated: true, completion: nil)
             
-        }else if signTextField.text == nil {
+        }else if signTextField.text == "" {
             let signAlertController = UIAlertController(title: "失败", message: "姓名不能是空", preferredStyle: .alert)
             let signAlertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
             signAlertController.addAction(signAlertAction)

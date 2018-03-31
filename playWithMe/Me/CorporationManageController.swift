@@ -19,6 +19,7 @@ class CorporationManageController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateData()
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func updateData(){

@@ -25,6 +25,7 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true 
         
         signTF.delegate = self
         emailTF.delegate = self
@@ -171,6 +172,10 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate{
     func checkUsername(username: String) -> Bool{
         print("检查用户名重复")
         return true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
 
 }

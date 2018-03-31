@@ -24,6 +24,8 @@ class CorporationDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.tableFooterView = UIView()
+        self.tabBarController?.tabBar.isHidden = true
+
 
         UIButton.setButton(button: addBT)
         addBT.backgroundColor = UIColor(red: 30/255.0, green: 144/255.0, blue: 1.0, alpha: 1.0)

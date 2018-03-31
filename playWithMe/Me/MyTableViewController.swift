@@ -160,6 +160,7 @@ class MyTableViewController: UITableViewController,  UIImagePickerControllerDele
     
     override func viewWillAppear(_ animated: Bool) {
         //每次进入用户界面则更新信息
+        self.tabBarController?.tabBar.isHidden = false 
         updateInfo()
     }
 
