@@ -78,6 +78,7 @@ class ActivityViewController: UITableViewController {
         cell.numberLB.text = String(activity.num)
         cell.usernameLB.text = activity.name
         cell.timeLB.text = showDate(date: activity.date)
+        cell.nameLB.text = activity.name 
         
         return cell
     }
@@ -86,5 +87,12 @@ class ActivityViewController: UITableViewController {
         return 220
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMessageBoard"{
+            let index = tableView.indexPathForSelectedRow?.row
+            let controller = segue.destination as! MessageBoardController
+            controller.activity = activities![index!]
+        }
+    }
+    
 }

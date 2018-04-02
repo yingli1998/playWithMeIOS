@@ -326,17 +326,23 @@
                                                 <constraint firstAttribute="width" constant="60" id="n4p-hi-3Dq"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9mU-lx-Wjt">
-                                            <rect key="frame" x="80" y="11" width="245" height="48.5"/>
+                                        <stackView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9mU-lx-Wjt">
+                                            <rect key="frame" x="80" y="11" width="245" height="75.5"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="即墨到流亭拼车" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQc-fM-zip">
+                                                    <rect key="frame" x="0.0" y="0.0" width="245" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Murray" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9N-xz-T2Y">
-                                                    <rect key="frame" x="0.0" y="0.0" width="245" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <rect key="frame" x="0.0" y="30.5" width="245" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hk-xb-bfB">
-                                                    <rect key="frame" x="0.0" y="31.5" width="245" height="17"/>
+                                                    <rect key="frame" x="0.0" y="58.5" width="245" height="17"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="240" text="55" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3N-5U-Wsv">
                                                             <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -375,10 +381,9 @@
                                                 <action selector="joinIn:" destination="Iyy-us-Nci" eventType="touchDown" id="5ty-TT-PqW"/>
                                             </connections>
                                         </button>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-Ny-RJM">
-                                            <rect key="frame" x="80" y="67" width="255" height="142.5"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-Ny-RJM">
+                                            <rect key="frame" x="80" y="93.5" width="255" height="116"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
@@ -393,7 +398,7 @@
                                         <constraint firstItem="9mU-lx-Wjt" firstAttribute="leading" secondItem="eKt-Nl-0AS" secondAttribute="trailing" constant="10" id="EjS-SA-MLi"/>
                                         <constraint firstItem="9mU-lx-Wjt" firstAttribute="top" secondItem="imV-nQ-yRJ" secondAttribute="topMargin" id="Ry2-9j-xVO"/>
                                         <constraint firstAttribute="bottom" secondItem="bvi-Ny-RJM" secondAttribute="bottom" constant="10" id="gTh-eq-NCx"/>
-                                        <constraint firstItem="bvi-Ny-RJM" firstAttribute="top" secondItem="9mU-lx-Wjt" secondAttribute="bottom" constant="7.5" id="i1J-Cs-k8b"/>
+                                        <constraint firstItem="bvi-Ny-RJM" firstAttribute="top" secondItem="9mU-lx-Wjt" secondAttribute="bottom" constant="7" id="i1J-Cs-k8b"/>
                                         <constraint firstItem="bvi-Ny-RJM" firstAttribute="leading" secondItem="eKt-Nl-0AS" secondAttribute="trailing" constant="10" id="tNs-vo-T3f"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -401,10 +406,11 @@
                                     <outlet property="addBT" destination="RSN-Kn-WJR" id="BgG-ru-Zro"/>
                                     <outlet property="detailTV" destination="bvi-Ny-RJM" id="a81-cH-Wu4"/>
                                     <outlet property="headImage" destination="eKt-Nl-0AS" id="lV7-aA-q1F"/>
+                                    <outlet property="nameLB" destination="dQc-fM-zip" id="U1r-rJ-d2f"/>
                                     <outlet property="numberLB" destination="L2w-le-x61" id="xB3-Qa-Teq"/>
                                     <outlet property="timeLB" destination="Z3N-5U-Wsv" id="AJe-ce-USk"/>
                                     <outlet property="usernameLB" destination="m9N-xz-T2Y" id="PqY-pI-QjP"/>
-                                    <segue destination="LNE-bB-a4G" kind="show" id="TsP-8b-13I"/>
+                                    <segue destination="LNE-bB-a4G" kind="show" identifier="showMessageBoard" id="TsP-8b-13I"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -438,7 +444,7 @@
                                 <barButtonItem systemItem="flexibleSpace" id="QbF-lM-Pe7"/>
                                 <barButtonItem systemItem="compose" id="kh7-sf-wAd">
                                     <connections>
-                                        <action selector="reply:" destination="LNE-bB-a4G" id="wiM-4v-j4i"/>
+                                        <action selector="reply:" destination="LNE-bB-a4G" id="eNm-qb-00t"/>
                                     </connections>
                                 </barButtonItem>
                             </items>
@@ -485,7 +491,7 @@
                                             </constraints>
                                             <state key="normal" image="sz"/>
                                             <connections>
-                                                <segue destination="jRY-BV-45F" kind="show" id="Bgn-l8-LgG"/>
+                                                <segue destination="jRY-BV-45F" kind="show" identifier="showUser" id="Bgn-l8-LgG"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -502,63 +508,6 @@
                                     <outlet property="imageBT" destination="SaY-re-t0Q" id="pbN-zO-6ly"/>
                                     <outlet property="nameLB" destination="a1M-9z-H5a" id="zBg-vZ-NTX"/>
                                     <outlet property="timeLB" destination="f0f-BT-U3Y" id="FSb-6j-Syb"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="replyCell" rowHeight="120" id="lFG-kT-VvZ" customClass="ReplyCell" customModule="playWithMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="192" width="375" height="120"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lFG-kT-VvZ" id="kTX-P6-MOi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0c3-ut-uMh">
-                                            <rect key="frame" x="111" y="25.5" width="248" height="69.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="狗子" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crF-oX-EgN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="248" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="252" text="在青岛" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="it6-6s-TX4">
-                                                    <rect key="frame" x="0.0" y="27" width="248" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="8分钟前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oox-3G-Cog">
-                                                    <rect key="frame" x="0.0" y="55" width="248" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wg6-ih-NNz">
-                                            <rect key="frame" x="56" y="11" width="40" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="HHS-I8-j74"/>
-                                                <constraint firstAttribute="height" constant="40" id="jSZ-wq-1Yq"/>
-                                            </constraints>
-                                            <state key="normal" image="defaultHeadImage4"/>
-                                            <connections>
-                                                <segue destination="jRY-BV-45F" kind="show" id="C0q-zP-wW7"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Wg6-ih-NNz" firstAttribute="top" secondItem="kTX-P6-MOi" secondAttribute="topMargin" id="1Ou-Cv-0v6"/>
-                                        <constraint firstItem="Wg6-ih-NNz" firstAttribute="leading" secondItem="kTX-P6-MOi" secondAttribute="leadingMargin" constant="40" id="3XQ-JI-EtQ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="0c3-ut-uMh" secondAttribute="trailing" id="BK0-U8-Fhw"/>
-                                        <constraint firstItem="0c3-ut-uMh" firstAttribute="centerY" secondItem="kTX-P6-MOi" secondAttribute="centerY" id="Pog-dL-hfp"/>
-                                        <constraint firstItem="0c3-ut-uMh" firstAttribute="leading" secondItem="Wg6-ih-NNz" secondAttribute="trailing" constant="15" id="nB4-2T-juP"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="contentLB" destination="it6-6s-TX4" id="aMO-e4-jEr"/>
-                                    <outlet property="imageBT" destination="Wg6-ih-NNz" id="z0B-Mu-5eE"/>
-                                    <outlet property="nameLB" destination="crF-oX-EgN" id="mIC-5h-X16"/>
-                                    <outlet property="timeLB" destination="Oox-3G-Cog" id="AfR-al-d2Y"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -3144,7 +3093,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLP-R1-cly" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3537" y="-1076"/>
+            <point key="canvasLocation" x="4294" y="-1065"/>
         </scene>
         <!--Setting Table View Controller-->
         <scene sceneID="hGH-qs-vQi">
@@ -3629,8 +3578,8 @@
         <image name="邮箱" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qep-bb-fz8"/>
-        <segue reference="uo9-2X-7GU"/>
+        <segue reference="8yb-vl-5ji"/>
+        <segue reference="Bgn-l8-LgG"/>
         <segue reference="1IK-aL-d6A"/>
     </inferredMetricsTieBreakers>
 </document>

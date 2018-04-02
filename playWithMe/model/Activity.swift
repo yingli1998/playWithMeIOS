@@ -19,4 +19,7 @@ class Activity: Object {
     @objc dynamic var date = Date()    //活动发布的时间
     @objc dynamic var rate = 0 //活动的评分
     let users = List<User>()   //参加人
+    
+    //所属的社团
+    @objc dynamic var corporation: Corporation?
 }

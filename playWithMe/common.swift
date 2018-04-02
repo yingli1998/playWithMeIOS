@@ -157,5 +157,16 @@ func checkCorporation(corporation: Corporation)->Bool{
     return false
 }
 
+//查看用户是否已经参加了该活动 true代表了参加  false代表了没有参加
+func checkActivity(activity: Activity)->Bool{
+    let user = getMeInfo()
+    for selfActivity in user.activity {
+        if activity.name == selfActivity.name {
+            return true
+        }
+    }
+    return false
+}
+
 
 

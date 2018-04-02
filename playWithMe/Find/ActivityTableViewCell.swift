@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ActivityTableViewCell: UITableViewCell {
     @IBOutlet weak var detailTV: UITextView!
@@ -15,6 +16,7 @@ class ActivityTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var headImage: UIImageView!
     @IBOutlet weak var usernameLB: UILabel!
+    @IBOutlet weak var nameLB: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         UIButton.setButton(button: addBT)
@@ -24,8 +26,19 @@ class ActivityTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    //加入该活动
     @IBAction func joinIn(_ sender: Any) {
+        let realm = try! Realm()
+        let activity = realm.objects(Activity.self).filter("name == %@", nameLB.text!).first
+        let user = getMeInfo()
+        try! realm.write {
+            if !checkActivity(activity: activity!){
+                activity?.users.append(user)
+                user.activity.append(activity!)
+            }
+        }
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
