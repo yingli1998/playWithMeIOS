@@ -61,6 +61,7 @@
 		72C864DC203971E7001CBD9F /* playWithMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C864DB203971E7001CBD9F /* playWithMeUITests.swift */; };
 		72C864EA203974B3001CBD9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C864E9203974B3001CBD9F /* LoginViewController.swift */; };
 		72CCF1842072244100E48B58 /* MessageBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CCF1832072244100E48B58 /* MessageBoard.swift */; };
+		72CCF1872074642B00E48B58 /* TGDropboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CCF1862074642B00E48B58 /* TGDropboxView.swift */; };
 		72D5EAE920520A210006BE17 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D5EAE820520A210006BE17 /* MessageList.swift */; };
 		72D5EAEB2053CE460006BE17 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D5EAEA2053CE460006BE17 /* Message.swift */; };
 /* End PBXBuildFile section */
@@ -145,6 +146,7 @@
 		72C864DD203971E7001CBD9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72C864E9203974B3001CBD9F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		72CCF1832072244100E48B58 /* MessageBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBoard.swift; sourceTree = "<group>"; };
+		72CCF1862074642B00E48B58 /* TGDropboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGDropboxView.swift; sourceTree = "<group>"; };
 		72D5EAE820520A210006BE17 /* MessageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
 		72D5EAEA2053CE460006BE17 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		8727642162731F3E68BE105C /* Pods-playWithMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playWithMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-playWithMe/Pods-playWithMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,7 +256,6 @@
 				722E898C206DE34000BFB38F /* CreateViewController.swift */,
 				722E898E206DE39300BFB38F /* CreateCorprationController.swift */,
 				722E8990206DE3A200BFB38F /* CreateActivityController.swift */,
-				722E8992206F607800BFB38F /* RoundedTextField.swift */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -284,6 +285,7 @@
 		72C864B8203971E6001CBD9F /* playWithMe */ = {
 			isa = PBXGroup;
 			children = (
+				72CCF1852074641600E48B58 /* view */,
 				722421682043F5B800ECE446 /* Find */,
 				722421672043F5B200ECE446 /* Me */,
 				722421662043F5A800ECE446 /* Message */,
@@ -317,6 +319,15 @@
 				72C864DD203971E7001CBD9F /* Info.plist */,
 			);
 			path = playWithMeUITests;
+			sourceTree = "<group>";
+		};
+		72CCF1852074641600E48B58 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				722E8992206F607800BFB38F /* RoundedTextField.swift */,
+				72CCF1862074642B00E48B58 /* TGDropboxView.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		8F05A59FBAC33BE80312694E /* Frameworks */ = {
@@ -502,17 +513,29 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-playWithMe/Pods-playWithMe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DGElasticPullToRefresh/DGElasticPullToRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGElasticPullToRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -554,6 +577,7 @@
 				722E898F206DE39300BFB38F /* CreateCorprationController.swift in Sources */,
 				72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */,
 				7206BA0C2061042300091544 /* FinishTableViewController.swift in Sources */,
+				72CCF1872074642B00E48B58 /* TGDropboxView.swift in Sources */,
 				7206BA082060E6B700091544 /* UserCorporationTableViewController.swift in Sources */,
 				7224214F2042AEE100ECE446 /* MessageTableViewCell.swift in Sources */,
 				7206BA10206235C300091544 /* ActivityManageController.swift in Sources */,

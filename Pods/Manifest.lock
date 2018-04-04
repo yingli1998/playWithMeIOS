@@ -1,23 +1,43 @@
 PODS:
+  - Alamofire (4.7.0)
   - DGElasticPullToRefresh (1.1)
+  - DynamicBlurView (2.0.2)
   - PagingMenuController (2.2.0)
+  - PopupDialog (0.7.1):
+    - DynamicBlurView (~> 2.0)
   - Realm (3.1.1):
     - Realm/Headers (= 3.1.1)
   - Realm/Headers (3.1.1)
   - RealmSwift (3.1.1):
     - Realm (= 3.1.1)
+  - RNCryptor (5.0.2)
+  - SwiftyJSON (4.0.0)
+  - SwiftyRSA (1.3.1):
+    - SwiftyRSA/ObjC (= 1.3.1)
+  - SwiftyRSA/ObjC (1.3.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - DGElasticPullToRefresh
   - PagingMenuController
+  - PopupDialog (~> 0.7)
   - RealmSwift
+  - RNCryptor (~> 5.0)
+  - SwiftyJSON
+  - SwiftyRSA
 
 SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
   DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
+  DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
   PagingMenuController: 6176618987bb170096664f2da097313e45ed9c31
+  PopupDialog: 39598b7d41719f5c025b4b70e62728bae7734fef
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
   RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
+  RNCryptor: 59b9f92e9fa8a1af74c32dc6b1af5e30ff5e1b64
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SwiftyRSA: 2da6509638c4a9e4f4407177f0a3cffc4e6e112b
 
-PODFILE CHECKSUM: 48558e474d19dc818159d2bcf86806337af1687c
+PODFILE CHECKSUM: 3d7c7378cade0969550118b756e116ccd83a6b2e
 
 COCOAPODS: 1.4.0

@@ -134,16 +134,28 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DGElasticPullToRefresh/DGElasticPullToRefresh.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DGElasticPullToRefresh/DGElasticPullToRefresh.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
