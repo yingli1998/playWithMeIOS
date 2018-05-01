@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import Alamofire
+import SwiftyJSON
 
 class CorporationDetailTableViewController: UITableViewController {
     @IBOutlet weak var corporationView: UIImageView!
@@ -19,6 +21,7 @@ class CorporationDetailTableViewController: UITableViewController {
     @IBOutlet weak var detailTV: UITextView!
     @IBOutlet weak var numLB: UILabel!
     var corporation: Corporation!
+    var founer: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,29 +39,40 @@ class CorporationDetailTableViewController: UITableViewController {
         creditLB.layer.cornerRadius = 30.0
         creditLB.layer.masksToBounds = true
         
-        loadData()
-        
+        //本地数据
+        corporationView.image = UIImage(data: corporation.headImage!)
+        nameLB.text = corporation.name
         backImageView.image = corporationView.image
+        
+        //远程数据
+        let url = base_url + "corporation"
+        let headers = getHeaders(login: true)
+        var parameters = Parameters()
+        parameters["name"] = corporation.name
+        Alamofire.request(url, method: .post,  parameters: parameters,  headers: headers).responseJSON { (response) in
+            let json = JSON(response.result.value!)
+            if(json["status"].intValue == 0){
+                //修改信息
+                self.detailTV.text = json["data"]["introduce"].string!
+                self.numLB.text = String(json["data"]["count"].intValue)
+                self.creditLB.text = String(json["data"]["credit"].intValue)
+                self.founer =  json["data"]["founder"].string!
+                let url = URL(string:  "http://47.106.122.58/" + json["data"]["headImage"].string!)
+                let image = NSData(contentsOf: url!) as Data?
+                self.createrView.setImage(UIImage(data: image!), for: .normal)
+                self.createrView.setImage(UIImage(data: image!), for: .selected)
+            }else{
+                let alertController = UIAlertController(title: "失败", message: json["message"].string!, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
         let  blurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
         let  blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = CGRect(origin: backImageView.frame.origin, size: CGSize(width: self.view.bounds.width, height: self.backImageView.frame.height))
         backImageView.addSubview(blurEffectView)
-    }
-    
-    //加载数据
-    func loadData(){
-        corporationView.image = UIImage(data: corporation.headImage!)
-        nameLB.text = corporation.name
-        if corporation.detail != nil {
-            detailTV.text = corporation.detail
-        }else{
-            detailTV.text = "目前暂无介绍"
-        }
-        numLB.text = String(corporation.num)
-        
-        createrView.setImage( UIImage(data: nameGetUser(username: corporation.creater).headImage!), for: .normal)
-        createrView.setImage(UIImage(data: nameGetUser(username: corporation.creater).headImage!), for: .selected)
-        creditLB.text = String(nameGetUser(username: corporation.creater).cedit)
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,31 +81,45 @@ class CorporationDetailTableViewController: UITableViewController {
     }
 
     @IBAction func joinTo(_ sender: UIButton) {
-        let user = getMeInfo()
-        let realm = try! Realm()
-        try! realm.write {
-            //如果用户没有加入该社团, 则加入
-            if !checkCorporation(corporation: corporation){
-                user.attendCorporation.append(corporation)
-                corporation.users.append(user)
+        let index = sender.tag   //标记是哪个社团
+        let url = base_url + "corporation/1"
+        let headers = getHeaders(login: true)
+        var parameters = Parameters()
+        parameters["name"] = corporation.name
+        parameters["member"] = getMeInfo().username
+        
+        //远程加入社团
+        Alamofire.request(url, method: .put,  parameters: parameters,  headers: headers).responseJSON { (response) in
+            let json = JSON(response.result.value!)
+            print(json)
+            if(json["status"].intValue == 0){
+                //本地加入社团
+                let user = getMeInfo()
+                let realm = try! Realm()
+                try! realm.write {
+                    user.corporation.append(self.corporation)
+                    self.corporation.isAdd = true
+                }
+                
+                let alertController = UIAlertController(title: "成功", message: "加入成功", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+            }else{
+                let alertController = UIAlertController(title: "失败", message: json["message"].string!, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
-        
-        let alertController = UIAlertController(title: "成功加入社团", message: nil, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
     }
     
     //转场传递数据
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showUser"{
             let controller = segue.destination as! UserDetailTableViewController
-            controller.user = nameGetUser(username: corporation.creater)
-        }else if segue.identifier == "sendMessage"{
-            let controller = segue.destination as! ChatViewController
-            controller.you = corporation.creater
-            createNewMessage(receiver: corporation.creater) //创建新的消息列表
+            controller.user = self.founer
         }
     }
     

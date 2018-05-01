@@ -25,7 +25,6 @@ class User: Object{
     @objc dynamic var cedit = 60   //信用值, 基础为60
 
     //社团信息
-    let manageCorporation = List<Corporation>()
+    let corporation = List<Corporation>()
     let activity = List<Activity>()
-    let attendCorporation = List<Corporation>()
 }

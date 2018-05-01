@@ -7,8 +7,11 @@
 //
 
 import UIKit
-import CoreData
 import RealmSwift
+import Alamofire
+import SwiftyJSON
+import SwiftyRSA
+import CryptoSwift 
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var SMSButton: UIButton!
@@ -18,7 +21,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     var status = "register"
-    
+    var token = ""
+    var username = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +35,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setBottomButton(button: SMSButton)
         loginButton.isHidden = true
         loginButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        
-        // Do any additional setup after loading the view.
     }
     
     //键盘消失
@@ -56,11 +58,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         status = "phone_login"
         loginButton.isHidden = true
         SMSButton.isHidden = false
+        passwordTF.isSecureTextEntry = false
     }
     
     //转换到登录状态
     @IBAction func chnageToLogin(_ sender: UIButton) {
-        usernameTF.placeholder = "用户名"
+        usernameTF.placeholder = "手机号"
         passwordTF.placeholder = "密码"
         loginButton.titleLabel?.text = "登录"
         chooseRegisterButton.isSelected = false
@@ -68,37 +71,74 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         status = "password_login"
         loginButton.isHidden = false
         SMSButton.isHidden = true
+        passwordTF.isSecureTextEntry = true
     }
     
     //登录按钮
     @IBAction func login(_ sender: UIButton) {
         if status == "phone_login"{
             //状态是手机号登录则检查验证码
-            if(checkSMS()){
-                updateLoginState()
-                
-                //进入主界面
-                let sb = UIStoryboard(name: "Main", bundle:nil)
-                let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
-                present(vc, animated: true, completion: nil)
+            let url = base_url + "login"
+            let headers = getHeaders(login: false)
+            let parameters: Parameters = [
+                "phone" : usernameTF.text!,
+                "code": passwordTF.text!
+            ]
+            Alamofire.request(url, method: .post,  parameters: parameters,  headers: headers).responseJSON { (response) in
+                //处理验证码的回复
+                let json = JSON(response.result.value!)
+                if(json["status"].intValue == 0){
+                    self.username = json["data"]["username"].string!
+                    self.token = json["data"]["token"].string!
+                    self.saveUser(username: self.username)  //注册成功, 返回用户名
+                    let sb = UIStoryboard(name: "Main", bundle:nil)
+                    let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
+                    self.present(vc, animated: true, completion: nil)
+                }else{
+                    let alertController = UIAlertController(title: "失败", message: json["message"].string!, preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
-            
         }else{
             //状态是密码登录则检查密码
-            if(checkPassword()){
-                updateLoginState()
-                
-                let sb = UIStoryboard(name: "Main", bundle:nil)
-                let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
-                present(vc, animated: true, completion: nil)
+            let url = base_url + "login"
+            let headers = getHeaders(login: false)
+            var parameters: Parameters = [
+                "phone" : usernameTF.text!,
+            ]
+            let aes = try! AES(key: aes_key.bytes, blockMode: .ECB, padding: .pkcs7) // aes128
+            parameters["password"] = try! aes.encrypt((passwordTF.text!+"|"+getDate()).bytes).toBase64()!
+            Alamofire.request(url, method: .post,  parameters: parameters,  headers: headers).responseJSON { (response) in
+                //处理验证码的回复
+                let json = JSON(response.result.value!)
+                if(json["status"].intValue == 0){
+                    self.token = json["data"]["token"].string!
+                    self.username = json["data"]["username"].string!
+                    let realm = try! Realm()
+                    let loginIn = realm.objects(LoginIn.self).first
+                    if(loginIn != nil){ //如果是直接登录
+                        try! realm.write {
+                            loginIn!["token"] = self.token
+                        }
+                    }else{
+                        //登录但是没有先注册, 此时需要从远程获取本用户的相关信息, 并将其存在本地
+                        self.saveUser(username: self.username)
+                    }
+                    
+                    //进入主界面
+                    let sb = UIStoryboard(name: "Main", bundle:nil)
+                    let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
+                    self.present(vc, animated: true, completion: nil)
+                }else{
+                    let alertController = UIAlertController(title: "失败", message: json["message"].string!, preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
         }
-        
-        //登录失败
-        let alertController = UIAlertController(title: "登录失败", message: nil, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
     }
     
     //获取SMS按钮
@@ -112,14 +152,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //发送验证码
     func sendSMS(){
         print("send SMS")
-    }
-    
-    //检查验证码
-    func checkSMS()->Bool{
-        let username = createUser()
-        saveUser(username: username)
-        print("check SMS")
-        return true
+        let api = "identify"
+        let url = base_url + api
+        let headers = getHeaders(login: false)  //获取headers
+        let parameters: Parameters = [
+            "phone" : usernameTF.text!
+        ]
+        
+        Alamofire.request(url, method: .post,  parameters: parameters,  headers: headers).responseJSON { (response) in
+            //处理验证码的回复
+            let json = JSON(response.result.value!)
+            if(json["status"].intValue == 0){
+                let alertController = UIAlertController(title: "成功", message: "验证码发送成功", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+            }else{
+                let alertController = UIAlertController(title: "失败", message: "请重试", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
     }
     
     //检查密码
@@ -140,20 +194,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //记录登录信息
         loginIn.firstLogin = false
         loginIn.lastTime = Date()
+        loginIn.token = token
         let defaultImage = UIImage(named: "defaultHeadImage1")
         user.headImage = UIImagePNGRepresentation(defaultImage!)
-//
+
         try! realm.write {
             realm.add(user)
             realm.add(loginIn)
         }
     }
-    
-    //远程创建用户 并返回用户名
-    func createUser() -> String {
-        print("create user")
-        return "Murray"
-    }
-
 
 }

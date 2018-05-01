@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import RealmSwift
+import Alamofire
+import SwiftyJSON
 
 
 class EditTableViewController: UITableViewController, UITextFieldDelegate{
@@ -22,6 +24,7 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate{
     var user: User!   //绑定个人用户
     let datePicker = UIDatePicker()
     var finishBT = UIButton()
+    var isRepeat = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,9 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate{
         usernameTF.delegate = self
         genderLB.isUserInteractionEnabled = true
         birthdayLB.isUserInteractionEnabled = true
+        
+        let imgView = UIImageView(image: UIImage(named: "叉号"))
+        usernameTF.leftView = imgView
         
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
         
@@ -46,6 +52,37 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate{
     }
     
     //键盘消失
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        //此时是在编辑用户名, 则进行用户名重复性检查
+        if textField == usernameTF {
+            print("正在修改用户名")
+            //如果用户名修改过且非空
+            if usernameTF.text != user.username && usernameTF.text != nil{
+                let url = base_url + "username"
+                let headers = getHeaders(login: true)
+                let parameters: Parameters = [
+                    "username": usernameTF.text!
+                ]
+                Alamofire.request(url, method: .post,  parameters: parameters,  headers: headers).responseJSON { (response) in
+                    //处理验证码的回复
+                    print(response)
+                    let json = JSON(response.result.value!)
+                    if(json["status"].intValue == 1){
+                        self.isRepeat = true
+                        //右边栏提示
+                        textField.leftViewMode = UITextFieldViewMode.always
+                    }else{
+                        self.isRepeat = false
+                        textField.leftView = nil
+                        textField.leftViewMode = UITextFieldViewMode.never
+                    }
+                }
+                
+            }
+        }
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -129,49 +166,90 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate{
 
     //保存信息
     @IBAction func save(_ sender: UIBarButtonItem) {
-        print("保存信息")
-
-        let realm = try! Realm()
+        let url = base_url + "user/1"
+        let headers = getHeaders(login: true)
+        var parameters:Parameters = Parameters()
         
-        try! realm.write {
-            //保存性别信息
-            if genderLB.text != nil {
-                user.gender = genderCode(gender: genderLB.text!)
-            }else{
-                user.gender = true  //如果没有, 默认是男性
+        //设置参数
+        if emailTF.text != nil {
+            parameters["email"] = emailTF.text!
+        }
+        if addressTF.text != nil {
+            parameters["address"] = addressTF.text!
+        }
+        if signTF.text != nil {
+            parameters["signature"] = signTF.text!
+        }
+        if birthdayLB.text != nil {
+            parameters["birthday"] = birthdayLB.text!
+        }
+        if self.genderLB.text == "女"{
+            parameters["gender"] = 1
+        }else{
+            parameters["gender"] = 0
+        }
+        
+        //如果用户名为空
+        if usernameTF.text == nil{
+            let alertController = UIAlertController(title: "失败", message: "用户名不可空", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else{
+            if usernameTF.text! != user.username {
+                //如果用户名重复
+                if isRepeat {
+                    let alertController = UIAlertController(title: "失败", message: "用户名重复", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }else {
+                    //如果用户名可用
+                    parameters["username"] = usernameTF.text!
+                }
             }
+            Alamofire.request(url, method: .put,  parameters: parameters,  headers: headers).responseJSON { (response) in
+                //处理验证码的回复
+                let json = JSON(response.result.value!)
+                if(json["status"].intValue == 0){
+                    let realm = try! Realm()
             
-            //保存生日信息
-            user.birthday = birthdayLB.text
-            
-            //保存个性签名
-            user.signature = signTF.text
-
-            //保存地址信息
-            user.address = addressTF.text
-            
-            //保存邮箱信息
-            user.email = emailTF.text
-            
-            //检查用户名是否重复 重复则用原来的名称
-            if checkUsername(username: usernameTF.text!){
-                user.username = usernameTF.text!
+                    try! realm.write {
+                        //保存性别信息
+                        if self.genderLB.text != nil {
+                            self.user.gender = genderCode(gender: self.genderLB.text!)
+                        }else{
+                            self.user.gender = true  //如果没有, 默认是男性
+                        }
+                        //保存生日信息
+                        self.user.birthday = self.birthdayLB.text
+                        //保存个性签名
+                        self.user.signature = self.signTF.text
+                        //保存地址信息
+                        self.user.address = self.addressTF.text
+                        //保存邮箱信息
+                        self.user.email = self.emailTF.text
+                        //检查查用户名是否重复 重复则用原来的名称
+                        if self.isRepeat == false {
+                            self.user.username = self.usernameTF.text!
+                        }
+                    }
+                    
+                }else{
+                    //确定信息
+                    let alertController = UIAlertController(title: "失败", message: json["message"].string!, preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                //确定信息
+                let alertController = UIAlertController(title: nil, message: "保存成功", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+                
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
-
-        //确定信息
-        let alertController = UIAlertController(title: nil, message: "保存成功", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
-
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-
-    }
-    
-    //检查用户名重复问题
-    func checkUsername(username: String) -> Bool{
-        print("检查用户名重复")
-        return true
     }
     
     override func viewWillDisappear(_ animated: Bool) {

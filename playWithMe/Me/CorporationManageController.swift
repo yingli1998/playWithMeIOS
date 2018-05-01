@@ -13,7 +13,7 @@ private let reuseIdentifier = "corporManCell"
 
 class CorporationManageController: UICollectionViewController {
     
-    var corporations: List<Corporation>?
+    var corporations: Results<Corporation>?
     var user: User!
 
     override func viewDidLoad() {
@@ -24,7 +24,8 @@ class CorporationManageController: UICollectionViewController {
     
     func updateData(){
         user = getMeInfo()
-        corporations = user.manageCorporation
+        let realm = try! Realm()
+        corporations = realm.objects(Corporation.self).filter("isManage == true")
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

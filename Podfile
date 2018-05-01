@@ -10,7 +10,7 @@ target 'playWithMe' do
   pod 'DGElasticPullToRefresh'
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON'
-  pod 'RNCryptor', '~> 5.0'
+  pod 'CryptoSwift'
   pod 'SwiftyRSA'
   pod 'PopupDialog', '~> 0.7'
 

@@ -9,6 +9,53 @@
 import Foundation
 import UIKit
 import RealmSwift
+import SwiftyRSA
+import Alamofire
+import CryptoSwift
+
+//头常用参数
+let did = UIDevice.current.identifierForVendor?.uuidString   //设备号
+let app_version = "1"     //版本号
+
+//publicKey
+let publicData = "******"
+
+//url
+let base_url = "*******"
+
+//aes_key
+let aes_key = "*******"
+
+//获取Headers
+func getHeaders(login: Bool)->HTTPHeaders{
+    let publicKey = try! PublicKey(pemEncoded: publicData) //给公钥赋值
+    var headers = HTTPHeaders()
+    headers["did"] = did!
+    headers["version"] = app_version
+    let str = did! + "|" + getDate()
+    let clear = try! ClearMessage(string: str, using: .utf8)
+    let encrypted = try! clear.encrypted(with: publicKey, padding: .PKCS1)
+    let base64String = encrypted.base64String  //加密后的值
+    headers["sign"] = base64String
+    
+    //如果是登录状态, 则header中有token
+    if login == true {
+        print("------------")
+        print("get token ")
+        let realm = try! Realm()
+        let loginIn = realm.objects(LoginIn.self).first!
+        let en_token = loginIn.token
+        do {
+            let aes = try AES(key: aes_key.bytes, blockMode: .ECB, padding: .pkcs7) // aes128
+            let token = try aes.encrypt(Array((en_token+"|"+getDate()).utf8)).toBase64()!
+            headers["token"] = token
+        } catch {
+            print(error)
+        }
+        print(headers)
+    }
+    return headers
+}
 
 func genderCode(gender: String) -> Bool {
     if gender == "女"{
@@ -17,6 +64,14 @@ func genderCode(gender: String) -> Bool {
         return true
     }
 }
+
+//获取时间戳
+func getDate()->String{
+    let date = Date()
+    let timeInterval = date.timeIntervalSince1970 * 1000
+    return String(timeInterval)
+}
+
 
 //卡片式设计
 extension UIView {
@@ -75,12 +130,20 @@ func nameGetUser(username: String)->User{
     return user!  //注意返回的是可空的值
 }
 
-//用用户名获取社团信息
+//用社团名获取社团信息
 func nameGetCorporation(name: String)->Corporation{
     let realm = try! Realm()
     let corporation = realm.objects(Corporation.self).filter("name == %@", name).first
     return corporation!
 }
+
+//用活动名获取活动信息
+func nameGetActivity(name: String) -> Activity {
+    let realm = try! Realm()
+    let activity = realm.objects(Activity.self).filter("name == %@", name).first
+    return activity!
+}
+
 
 //显示时间
 func showDate(date: Date)->String{
@@ -98,45 +161,6 @@ func getMeInfo()->User{
     return user!
 }
 
-//更新登录状态
-func updateLoginState(){
-    let realm = try! Realm()
-    let loginIn = realm.objects(LoginIn.self).first  //获取登录状态并更新
-    try! realm.write {
-        loginIn?.lastTime = Date()
-    }
-}
-
-//设置消息体
-func setMessageItem(message: Message)->MessageItem{
-    let receiver: User
-    let chatType: ChatType
-    if message.isMe {
-        receiver = nameGetUser(username: message.receiver)
-        chatType = .someone
-    }else{
-        receiver = getMeInfo()
-        chatType = .mine
-    }
-    
-    let messageItem = MessageItem(body: message.message as NSString, user: receiver, date: message.date, mtype: chatType)
-    
-    return messageItem
-}
-
-//创建新的消息
-func createNewMessage(receiver: String){
-    let realm = try! Realm()
-    if !(realm.objects(MessageList.self).filter("username == %@", receiver).first != nil){
-        let newMessageList = MessageList()
-        newMessageList.username = receiver
-        newMessageList.date = Date()
-        try! realm.write {
-            realm.add(newMessageList)
-        }
-    }
-}
-
 //修改图片尺寸
 func scaleToSize(size:CGSize, image: UIImage) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(size, false, 0)
@@ -149,8 +173,20 @@ func scaleToSize(size:CGSize, image: UIImage) -> UIImage {
 //查看用户是否已经参加了该社团 true代表了参加  false代表了没有参加
 func checkCorporation(corporation: Corporation)->Bool{
     let user = getMeInfo()
-    for selfCorporation in user.attendCorporation {
+    for selfCorporation in user.corporation {
         if corporation.name == selfCorporation.name {
+            return true
+        }
+    }
+    return false
+}
+
+//检查这个社团是否已经存在数据库中
+func hasCorporation(corporation: Corporation)->Bool{
+    let realm = try! Realm()
+    let corporations = realm.objects(Corporation.self)
+    for corp in corporations {
+        if corp.name == corporation.name {
             return true
         }
     }
@@ -166,6 +202,37 @@ func checkActivity(activity: Activity)->Bool{
         }
     }
     return false
+}
+
+//检查登录状态
+func checkLoginStatus()->Bool{
+    let realm = try! Realm()
+    let loginIn = realm.objects(LoginIn.self).first!
+    if Date().timeIntervalSince1970*1000 - loginIn.lastTime.timeIntervalSince1970 * 1000 > Double(loginIn.interval*60*60*24){
+        return true
+    }else{
+        return false
+    }
+}
+
+//base64解码
+func base64Decoding(encodedString:String)->String
+{
+    let decodedData = NSData(base64Encoded: encodedString, options: NSData.Base64DecodingOptions.init(rawValue: 0))
+    let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue)! as String
+    return decodedString
+}
+
+/// swift Base64处理
+/**
+ *   编码
+ */
+func base64Encoding(plainString:String)->String
+{
+    
+    let plainData = plainString.data(using: String.Encoding.utf8)
+    let base64String = plainData?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
+    return base64String!
 }
 
 

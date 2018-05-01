@@ -117,7 +117,8 @@ class TGDropBoxView: UIView {
         self.boxArrow.center = CGPoint(x: self.frame.size.width - 21, y: self.frame.size.height * 0.5)
         
         self.listTableView.frame.origin = CGPoint(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height)
-        self.listTableView.frame.size = CGSize(width: self.frame.size.width, height: CGFloat(self.items.count) * TGDropBoxListCellHeight)
+        self.listTableView.frame.size = CGSize(width: self.backgroundView.frame.width
+, height: CGFloat(self.items.count) * TGDropBoxListCellHeight)
     }
     
     required init?(coder aDecoder: NSCoder) {

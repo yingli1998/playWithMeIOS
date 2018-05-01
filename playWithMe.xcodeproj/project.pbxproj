@@ -26,14 +26,6 @@
 		72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72242143203FD4EC00ECE446 /* MyTableViewController.swift */; };
 		72242148203FE6C100ECE446 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72242147203FE6C100ECE446 /* PasswordViewController.swift */; };
 		7224214A203FE78900ECE446 /* EditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72242149203FE78900ECE446 /* EditTableViewController.swift */; };
-		7224214D2042AB8D00ECE446 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224214C2042AB8D00ECE446 /* MessageTableViewController.swift */; };
-		7224214F2042AEE100ECE446 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224214E2042AEE100ECE446 /* MessageTableViewCell.swift */; };
-		722421512042B05B00ECE446 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722421502042B05B00ECE446 /* ChatViewController.swift */; };
-		722421532042B0E300ECE446 /* ChatDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722421522042B0E300ECE446 /* ChatDataSource.swift */; };
-		722421572042B11E00ECE446 /* MessageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722421562042B11E00ECE446 /* MessageItem.swift */; };
-		7224215B2042B15600ECE446 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224215A2042B15600ECE446 /* TableView.swift */; };
-		7224215D2042B17D00ECE446 /* TableHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224215C2042B17D00ECE446 /* TableHeaderViewCell.swift */; };
-		7224215F2042B19100ECE446 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224215E2042B19100ECE446 /* TableViewCell.swift */; };
 		722421632042C32E00ECE446 /* FindTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722421622042C32E00ECE446 /* FindTableViewController.swift */; };
 		722421652043F5A200ECE446 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722421642043F5A200ECE446 /* SettingTableViewController.swift */; };
 		722E898D206DE34000BFB38F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E898C206DE34000BFB38F /* CreateViewController.swift */; };
@@ -53,6 +45,11 @@
 		726662EA2069273100FE93A8 /* MemeberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726662E92069273100FE93A8 /* MemeberTableViewCell.swift */; };
 		7296CA06205112E0002839B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296CA05205112E0002839B4 /* User.swift */; };
 		7296CA0820511A2A002839B4 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296CA0720511A2A002839B4 /* common.swift */; };
+		72B49FB820914FE8001DF5BF /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49FB620914FE7001DF5BF /* RatingViewController.swift */; };
+		72B49FB920914FE8001DF5BF /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B49FB720914FE7001DF5BF /* RatingViewController.xib */; };
+		72B49FBB2091519E001DF5BF /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49FBA2091519D001DF5BF /* CosmosDistrib.swift */; };
+		72B49FBD20917A61001DF5BF /* MyMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49FBC20917A61001DF5BF /* MyMessageViewController.swift */; };
+		72B49FBF20917C9E001DF5BF /* MyMessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49FBE20917C9E001DF5BF /* MyMessageViewCell.swift */; };
 		72C864BA203971E6001CBD9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C864B9203971E6001CBD9F /* AppDelegate.swift */; };
 		72C864C1203971E6001CBD9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72C864BF203971E6001CBD9F /* Main.storyboard */; };
 		72C864C3203971E6001CBD9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72C864C2203971E6001CBD9F /* Assets.xcassets */; };
@@ -62,8 +59,6 @@
 		72C864EA203974B3001CBD9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C864E9203974B3001CBD9F /* LoginViewController.swift */; };
 		72CCF1842072244100E48B58 /* MessageBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CCF1832072244100E48B58 /* MessageBoard.swift */; };
 		72CCF1872074642B00E48B58 /* TGDropboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CCF1862074642B00E48B58 /* TGDropboxView.swift */; };
-		72D5EAE920520A210006BE17 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D5EAE820520A210006BE17 /* MessageList.swift */; };
-		72D5EAEB2053CE460006BE17 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D5EAEA2053CE460006BE17 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,14 +100,6 @@
 		72242143203FD4EC00ECE446 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 		72242147203FE6C100ECE446 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		72242149203FE78900ECE446 /* EditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTableViewController.swift; sourceTree = "<group>"; };
-		7224214C2042AB8D00ECE446 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
-		7224214E2042AEE100ECE446 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
-		722421502042B05B00ECE446 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		722421522042B0E300ECE446 /* ChatDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataSource.swift; sourceTree = "<group>"; };
-		722421562042B11E00ECE446 /* MessageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItem.swift; sourceTree = "<group>"; };
-		7224215A2042B15600ECE446 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
-		7224215C2042B17D00ECE446 /* TableHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderViewCell.swift; sourceTree = "<group>"; };
-		7224215E2042B19100ECE446 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		722421622042C32E00ECE446 /* FindTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTableViewController.swift; sourceTree = "<group>"; };
 		722421642043F5A200ECE446 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		722E898C206DE34000BFB38F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +119,11 @@
 		726662E92069273100FE93A8 /* MemeberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeberTableViewCell.swift; sourceTree = "<group>"; };
 		7296CA05205112E0002839B4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7296CA0720511A2A002839B4 /* common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
+		72B49FB620914FE7001DF5BF /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		72B49FB720914FE7001DF5BF /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingViewController.xib; sourceTree = "<group>"; };
+		72B49FBA2091519D001DF5BF /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
+		72B49FBC20917A61001DF5BF /* MyMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageViewController.swift; sourceTree = "<group>"; };
+		72B49FBE20917C9E001DF5BF /* MyMessageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageViewCell.swift; sourceTree = "<group>"; };
 		72C864B6203971E6001CBD9F /* playWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = playWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C864B9203971E6001CBD9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72C864C0203971E6001CBD9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,8 +139,6 @@
 		72C864E9203974B3001CBD9F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		72CCF1832072244100E48B58 /* MessageBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBoard.swift; sourceTree = "<group>"; };
 		72CCF1862074642B00E48B58 /* TGDropboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGDropboxView.swift; sourceTree = "<group>"; };
-		72D5EAE820520A210006BE17 /* MessageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
-		72D5EAEA2053CE460006BE17 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		8727642162731F3E68BE105C /* Pods-playWithMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playWithMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-playWithMe/Pods-playWithMe.release.xcconfig"; sourceTree = "<group>"; };
 		F5050F0D279FEE23A4E15F21 /* Pods_playWithMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_playWithMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -191,11 +181,7 @@
 		7224214B2042AB3D00ECE446 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				722421522042B0E300ECE446 /* ChatDataSource.swift */,
-				722421562042B11E00ECE446 /* MessageItem.swift */,
 				7296CA05205112E0002839B4 /* User.swift */,
-				72D5EAE820520A210006BE17 /* MessageList.swift */,
-				72D5EAEA2053CE460006BE17 /* Message.swift */,
 				7223E898206B8DBD003650F4 /* Corporation.swift */,
 				7223E89A206B8DC8003650F4 /* Activity.swift */,
 				7223E89C206B98EB003650F4 /* LoginIn.swift */,
@@ -207,12 +193,8 @@
 		722421662043F5A800ECE446 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				7224215A2042B15600ECE446 /* TableView.swift */,
-				7224215E2042B19100ECE446 /* TableViewCell.swift */,
-				7224215C2042B17D00ECE446 /* TableHeaderViewCell.swift */,
-				7224214C2042AB8D00ECE446 /* MessageTableViewController.swift */,
-				722421502042B05B00ECE446 /* ChatViewController.swift */,
-				7224214E2042AEE100ECE446 /* MessageTableViewCell.swift */,
+				72B49FBC20917A61001DF5BF /* MyMessageViewController.swift */,
+				72B49FBE20917C9E001DF5BF /* MyMessageViewCell.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -324,6 +306,9 @@
 		72CCF1852074641600E48B58 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				72B49FBA2091519D001DF5BF /* CosmosDistrib.swift */,
+				72B49FB620914FE7001DF5BF /* RatingViewController.swift */,
+				72B49FB720914FE7001DF5BF /* RatingViewController.xib */,
 				722E8992206F607800BFB38F /* RoundedTextField.swift */,
 				72CCF1862074642B00E48B58 /* TGDropboxView.swift */,
 			);
@@ -451,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C864C6203971E6001CBD9F /* LaunchScreen.storyboard in Resources */,
+				72B49FB920914FE8001DF5BF /* RatingViewController.xib in Resources */,
 				72C864C3203971E6001CBD9F /* Assets.xcassets in Resources */,
 				72C864C1203971E6001CBD9F /* Main.storyboard in Resources */,
 			);
@@ -514,11 +500,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-playWithMe/Pods-playWithMe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DGElasticPullToRefresh/DGElasticPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
-				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -527,11 +513,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGElasticPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -549,48 +535,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7224215F2042B19100ECE446 /* TableViewCell.swift in Sources */,
+				72B49FBB2091519E001DF5BF /* CosmosDistrib.swift in Sources */,
 				722421632042C32E00ECE446 /* FindTableViewController.swift in Sources */,
+				72B49FBD20917A61001DF5BF /* MyMessageViewController.swift in Sources */,
 				72C864EA203974B3001CBD9F /* LoginViewController.swift in Sources */,
 				722E8993206F607800BFB38F /* RoundedTextField.swift in Sources */,
 				7206BA12206237EC00091544 /* RuningActivityCell.swift in Sources */,
-				722421572042B11E00ECE446 /* MessageItem.swift in Sources */,
 				726662EA2069273100FE93A8 /* MemeberTableViewCell.swift in Sources */,
 				7206BA0A2060F83F00091544 /* ActivityTableViewCell.swift in Sources */,
-				7224215B2042B15600ECE446 /* TableView.swift in Sources */,
 				7223E897206B8B5E003650F4 /* EditCorporationViewController.swift in Sources */,
 				722421652043F5A200ECE446 /* SettingTableViewController.swift in Sources */,
 				72C864BA203971E6001CBD9F /* AppDelegate.swift in Sources */,
 				726662E82069271C00FE93A8 /* MemeberTableViewController.swift in Sources */,
 				7223E89D206B98EB003650F4 /* LoginIn.swift in Sources */,
+				72B49FBF20917C9E001DF5BF /* MyMessageViewCell.swift in Sources */,
 				726662E220690CED00FE93A8 /* AskCell.swift in Sources */,
 				72242148203FE6C100ECE446 /* PasswordViewController.swift in Sources */,
 				7223E89B206B8DC8003650F4 /* Activity.swift in Sources */,
+				72B49FB820914FE8001DF5BF /* RatingViewController.swift in Sources */,
 				724F60C32059319E00AEF3EA /* CorporationViewController.swift in Sources */,
 				7224214A203FE78900ECE446 /* EditTableViewController.swift in Sources */,
 				7224213E203D566500ECE446 /* GuideViewController.swift in Sources */,
 				724F60CB2060E33900AEF3EA /* UserDetailTableViewController.swift in Sources */,
 				722E8991206DE3A200BFB38F /* CreateActivityController.swift in Sources */,
 				726662DE20690CBF00FE93A8 /* MessageBoardController.swift in Sources */,
-				722421532042B0E300ECE446 /* ChatDataSource.swift in Sources */,
 				7296CA0820511A2A002839B4 /* common.swift in Sources */,
 				722E898F206DE39300BFB38F /* CreateCorprationController.swift in Sources */,
 				72242144203FD4EC00ECE446 /* MyTableViewController.swift in Sources */,
 				7206BA0C2061042300091544 /* FinishTableViewController.swift in Sources */,
 				72CCF1872074642B00E48B58 /* TGDropboxView.swift in Sources */,
 				7206BA082060E6B700091544 /* UserCorporationTableViewController.swift in Sources */,
-				7224214F2042AEE100ECE446 /* MessageTableViewCell.swift in Sources */,
 				7206BA10206235C300091544 /* ActivityManageController.swift in Sources */,
 				722E898D206DE34000BFB38F /* CreateViewController.swift in Sources */,
-				7224215D2042B17D00ECE446 /* TableHeaderViewCell.swift in Sources */,
 				7223E899206B8DBD003650F4 /* Corporation.swift in Sources */,
-				72D5EAEB2053CE460006BE17 /* Message.swift in Sources */,
-				7224214D2042AB8D00ECE446 /* MessageTableViewController.swift in Sources */,
-				722421512042B05B00ECE446 /* ChatViewController.swift in Sources */,
 				724F60C5205931C700AEF3EA /* ActivityViewController.swift in Sources */,
 				72CCF1842072244100E48B58 /* MessageBoard.swift in Sources */,
 				724F60C120591B3F00AEF3EA /* HomePageViewController.swift in Sources */,
-				72D5EAE920520A210006BE17 /* MessageList.swift in Sources */,
 				72242140203FCBAA00ECE446 /* MainViewController.swift in Sources */,
 				7296CA06205112E0002839B4 /* User.swift in Sources */,
 				7206BA162062383E00091544 /* RunningActivityController.swift in Sources */,

@@ -86,9 +86,5 @@ class ActivityManageController: UIViewController {
         //分页菜单控制器视图添加到当前视图中
         view.addSubview(pagingMenuController.view)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
 
 }

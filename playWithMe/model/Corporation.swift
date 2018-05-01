@@ -17,6 +17,8 @@ class Corporation: Object {
     @objc dynamic var creater = ""   //创建人
     @objc dynamic var num = 0  //加入社团的人数
     @objc dynamic var state = true  //社团的状态, 运行中为true, 否则为false
+    @objc dynamic var isAdd = false  //是否加入该社团
+    @objc dynamic var isManage = false  //社团是否被管理
     
     //关联的活动和用户
     let activities = List<Activity>()

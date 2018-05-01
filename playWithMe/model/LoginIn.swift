@@ -9,8 +9,10 @@
 import Foundation
 import RealmSwift
 
+
 class LoginIn: Object{
     @objc dynamic var lastTime = Date()  //上次登录时间
     @objc dynamic var firstLogin = false  //是否是第一次登录
     @objc dynamic var interval = 7*24*60*60  //过期时间
+    @objc dynamic var token = ""   //记录token 
 }

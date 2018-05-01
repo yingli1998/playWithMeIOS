@@ -22,24 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.black
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         
-        //增加标识，用于判断是否是第一次启动应用...
-        if (!(UserDefaults.standard.bool(forKey: "everLaunched"))) { //正常为!
-            UserDefaults.standard.set(true, forKey:"everLaunched")
-            let guideViewController = GuideViewController()
-            self.window!.rootViewController = guideViewController
-        }else if true {  //非登录状态进入登录注册界面
-            let sb = UIStoryboard(name: "Main", bundle:nil)
-            let loginController = sb.instantiateViewController(withIdentifier: "Login") as! LoginViewController
-            //VC为该界面storyboardID，Main.storyboard中选中该界面View，Identifier inspector中修改
-            self.window?.rootViewController = loginController
-        }else{
-            //登录状态进入主界面
-            let sb = UIStoryboard(name: "Main", bundle:nil)
-            let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
-            //VC为该界面storyboardID，Main.storyboard中选中该界面View，Identifier inspector中修改
-            self.window?.rootViewController = vc
-        }
-        
         let config = Realm.Configuration(
             // 设置新的架构版本。必须大于之前所使用的
             // （如果之前从未设置过架构版本，那么当前的架构版本为 0）
@@ -65,6 +47,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 现在我们已经通知了 Realm 如何处理架构变化，
         // 打开文件将会自动执行迁移
+        
+        
+        //增加标识，用于判断是否是第一次启动应用...
+        if (!(UserDefaults.standard.bool(forKey: "everLaunched"))) { //正常为!
+            UserDefaults.standard.set(true, forKey:"everLaunched")
+            let guideViewController = GuideViewController()
+            self.window!.rootViewController = guideViewController
+        }else if(!(UserDefaults.standard.bool(forKey: "firstLogin"))){//如果是没有登录过,进入登录界面
+            let sb = UIStoryboard(name: "Main", bundle:nil)
+            let loginController = sb.instantiateViewController(withIdentifier: "Login") as! LoginViewController
+            //VC为该界面storyboardID，Main.storyboard中选中该界面View，Identifier inspector中修改
+            self.window?.rootViewController = loginController
+        }else if checkLoginStatus() {  //非登录状态进入登录注册界面
+            let sb = UIStoryboard(name: "Main", bundle:nil)
+            let loginController = sb.instantiateViewController(withIdentifier: "Login") as! LoginViewController
+            //VC为该界面storyboardID，Main.storyboard中选中该界面View，Identifier inspector中修改
+            self.window?.rootViewController = loginController
+        }else{
+            //登录状态进入主界面
+            let sb = UIStoryboard(name: "Main", bundle:nil)
+            let vc = sb.instantiateViewController(withIdentifier: "Main") as! UITabBarController
+            //VC为该界面storyboardID，Main.storyboard中选中该界面View，Identifier inspector中修改
+            self.window?.rootViewController = vc
+        }
         
         return true
     }

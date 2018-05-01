@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import RealmSwift
+import SwiftyJSON
+import Alamofire
 
 class MyTableViewController: UITableViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var usernameLB: UILabel!
@@ -35,6 +37,7 @@ class MyTableViewController: UITableViewController,  UIImagePickerControllerDele
         
         //给用户赋值
         user = getMeInfo()
+        
     }
     
     //更新用户信息
@@ -67,6 +70,9 @@ class MyTableViewController: UITableViewController,  UIImagePickerControllerDele
         }else{
             signLB.text = ""
         }
+        
+        //更新签名
+        creditLB.text = String(user.cedit)
 
         //更新电话
         phoneLB.text = user.phone
@@ -81,7 +87,6 @@ class MyTableViewController: UITableViewController,  UIImagePickerControllerDele
     //点击头像换头像
     @IBAction func changeHeadImage(_ sender: UITapGestureRecognizer) {
         
-        print("选择头像")
         //判断设置是否支持图片库
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             //初始化图片控制器
@@ -95,7 +100,10 @@ class MyTableViewController: UITableViewController,  UIImagePickerControllerDele
                 () -> Void in
             })
         }else{
-            print("读取相册错误")
+            let alertController = UIAlertController(title: "错误", message: "读取相册错误", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -107,6 +115,12 @@ class MyTableViewController: UITableViewController,  UIImagePickerControllerDele
         let image = scaleToSize(size: CGSize(width: 200, height: 200), image: pickedImage)
         let imageData = UIImageJPEGRepresentation(image,0)!
         
+        //将选择的图片保存到Document目录下
+        let fileManager = FileManager.default
+        let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
+        let filePath = "\(rootPath)/image.jpg"
+        fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
+        
         //存储头像到本地数据库
         let realm = try! Realm()
         try! realm.write {
@@ -114,40 +128,28 @@ class MyTableViewController: UITableViewController,  UIImagePickerControllerDele
             self.user.headImage = imageData
         }
         
+        let headers = getHeaders(login: true)
+        let url = base_url + "userImage"
+        let fileURL = URL(fileURLWithPath: filePath)
+        
+        Alamofire.upload(multipartFormData:{ multipartFormData in
+            multipartFormData.append(fileURL, withName: "image")
+            },
+            usingThreshold:UInt64.init(),
+            to:url,
+            method:.post,
+            headers:headers,
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON { response in
+                        debugPrint(response)
+                    }
+                case .failure(let encodingError):
+                    print(encodingError)
+                }
+        })
 
-//
-//        let alertController = UIAlertController(title: "你确定修改头像吗", message: nil, preferredStyle: .alert)
-//        let alertAction = UIAlertAction(title: "确定", style: .cancel) { (action) in
-//            //获取选择的原图
-//            let pickedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-//            let imageData = UIImageJPEGRepresentation(pickedImage, 1.0)
-//
-//            //存储头像到本地数据库
-//            let realm = try! Realm()
-//            try! realm.write {
-//                self.user.headImage = imageData
-//            }
-//        }
-//
-//        let cancelAction = UIAlertAction(title: "取消", style: .default, handler: nil)
-//
-//        alertController.addAction(alertAction)
-//        alertController.addAction(cancelAction)
-//        present(alertController, animated: true, completion: nil)
-        
-//        //上传图片
-//        if (fileManager.fileExists(atPath: filePath)){
-//            取得NSURL
-//                        let imageURL = URL(fileURLWithPath: filePath)
-//                        //使用Alamofire上传
-//                        Alamofire.upload(imageURL, to: "http://www.hangge.com/upload.php")
-//                            .responseString { response in
-//                                print("Success: \(response.result.isSuccess)")
-//                                print("Response String: \(response.result.value ?? "")")
-//                        }
-//
-//        }
-        
         //图片控制器退出
         picker.dismiss(animated: true, completion:nil)
     }
